@@ -11,6 +11,12 @@
 > 本人并非往届毕业生，就读大二，对毕业设计一无所知，只是闲着无聊搓的模板，不保证模板的正确性。 <br>
 > 调整格式的部分大多数采用叠加透明图片微调参数，没有理论支撑（理论支撑是：word 和 typst 的排版模型不同，没法相提并论）。
 
+> [!NOTE]
+> 目前完成的部分有：封面、原创性声明、摘要、目录、正文、参考文献、附录、致谢。 <br>
+> 加入了 三线表 模板，可以在正文中使用。 <br>
+> 没有推荐和参考的伪代码和代码格式，目前没导入伪代码模块，代码格式是默认的。 <br>
+> 没有调整 有序列表 与 无序列表 的格式，目前是默认的。（因为用有序列表真的太难看了） <br>
+
 ### 使用方法
 
 #### 下载 typst
@@ -50,6 +56,22 @@
 ```
 
 ### 目前存在的问题
+
+#### 引用格式
+
+目前采用的是 `Typst` 里内置的 `gb-7714-2015-numeric` 引用格式，与学校要求的格式有些许出入。
+
+我从 [zotero-chinese/styles 仓库](https://github.com/zotero-chinese/styles/blob/main/src/beijing-institute-of-technology/beijing-institute-of-technology.csl) 中下载的 `csl` 没法直接在 `Typst` 中使用，我还不是很懂该怎么改。
+
+#### 字体格式
+
+1. 我并没有在模板中存放 <span style="font-family: STXihei">STXihei</span> 字体（即 <span style="font-family: STXihei">华文细黑</span>），大部分 windows 电脑可能自带了该字体。
+  该字体仅在封面中的主标题使用。
+2. word 模板里要求 标题 采用 <span style="font-family: 黑体">黑体</span>，以及 正文 / 目录 采用 <span style="font-family: 宋体">宋体</span>，而参考了 [BIThesis](https://bithesis.bitnp.net/) 的设置，我对所有的拉丁字体（[a-zA-Z0-9]）都采用了 <span style="font-family: Times New Roman">Times New Roman</span> 字体，更为统一。
+
+#### 原创性声明
+
+该页直接采用了 导入 svg 图片的方式，没有采用 `Typst` 的原生方式，因为 `Typst` 无论如何都不可能调的与 word 中完全一致。
 
 ### 参考和致谢
 
