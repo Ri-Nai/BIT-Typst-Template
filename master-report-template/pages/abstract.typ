@@ -1,0 +1,45 @@
+#import "../utils/ziti.typ": cn-zihao, cn-zh
+
+#let abstract(
+  title: "",
+  content: [],
+  keywords: (),
+) = [
+
+  #if content == [] {
+    return
+  } 
+  #let zh-title(it) = {
+    set text(font: "SimHei", weight: "bold", size: cn-zh("小二"))
+
+    set align(center)
+    v(1em)
+    it
+  }
+
+  #show heading.where(level: 1): it => {
+    set text(font: "SimHei", size: cn-zh("三号"))
+
+    set align(center)
+    v(0.6em)
+    it
+    v(1.4em)
+  }
+
+  #zh-title(title)
+
+  = 摘#h(1em)要
+
+  #content
+
+  #linebreak()
+  #text(
+    font: "SimHei",
+    weight: "bold",
+  )[
+    关键词：#keywords.join("；")
+  ]
+
+  #pagebreak()
+
+]
