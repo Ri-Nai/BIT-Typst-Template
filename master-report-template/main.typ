@@ -53,7 +53,7 @@
     ("手机", 1000, 10000, 500, "50%"),
     ("计算机", 5500, 5000, 220, "22%"),
     ("笔记本电脑", 1100, 1000, 280, "28%"),
-    footer: ("合计", 7600, 15000, 1000, "100%"),
+    footer: ("合计", 7600, 16000, 1000, "100%"),
   ),
   kind: table,
   caption: "统计表",
@@ -104,7 +104,45 @@ int main() {
 与`LaTeX` 基本一致。$a^2 + b^2 = c^2$ 表示行内公式。
 $ a^2 + b^2 = c^2 $ 表示行间公式。（mathmode）
 
-符号可能有点不大相同，以及再也不用加 `\{}` 了。
+符号可能有点不大相同，做了很多智能化的操作，以及再也不用加 `\{}` 了。
+
+
+#let code-display(code) = (
+  raw(code, lang: "typst", block: true),
+  eval(code),
+)
+#table(
+  align: horizon,
+  columns: (auto,),
+  // inset: 1pt,
+  inset: (x, y) => if calc.even(y) { 1pt } else { 5pt },
+  ..code-display("$ 1 / 2 $
+$ frac(1, 2) $
+$ sqrt(2) $"),
+
+  ..code-display("$
+  pi(i) = cases(
+    #[$0, i = 0$],
+    #[$max{k | k < i, s[0...k-1] = s[i-(k-1)...i]}, 0 < i < n$]
+  )
+$"),
+  // 二维正态分布密度函数
+  ..code-display("$
+  f(x, y) = frac(1, 2  pi  sigma_x  sigma_y) dot e^(-frac(1, 2) (
+    frac((x - mu_x)^2, sigma_x^2) + frac((y - mu_y)^2, sigma_y^2) +
+    2 rho frac((x - mu_x)(y - mu_y), sigma_x sigma_y)
+  ))
+$
+$
+  f(x, y) = & frac(1, 2  pi  sigma_x  sigma_y)\
+  dot & exp(-frac(1, 2)(
+    frac((x - mu_x)^2, sigma_x^2) +
+    frac((y - mu_y)^2, sigma_y^2) +
+    2 rho frac((x - mu_x)(y - mu_y), sigma_x sigma_y)
+  ))
+$
+"),
+)
 
 == 列表
 
@@ -138,44 +176,83 @@ Typst 支持嵌套列表体系，可通过缩进实现层级结构：
 === 表格
 
 ==== 内置表格
-
-#figure(
-  caption: "九九乘法表",
-  table(
-    columns: (auto,) * 10,
-    ..for i in range(10) {
-      for j in range(10) {
-        if i * j != 0 {
-          (
-            table.cell(
-              fill: rgb(
-                ((10 - calc.abs(i - j)) / 20 * 100%),
-                ((10 - calc.abs(i - j)) / 20 * 100%),
-                90%,
+#{
+  show figure: set block(breakable: true)
+  figure(
+    caption: "九九乘法表",
+    table(
+      columns: (2em,) * 10,
+      ..for i in range(10) {
+        for j in range(10) {
+          if i * j != 0 {
+            (
+              table.cell(
+                fill: rgb(
+                  ((10 - calc.abs(i - j)) / 20 * 100%),
+                  ((10 - calc.abs(i - j)) / 20 * 100%),
+                  90%,
+                ),
+                text(fill: rgb(255, 255, 255))[$#(i * j)$],
               ),
-              text(fill: rgb(255, 255, 255))[
-                $#(i * j)$],
-            ),
-          )
-        } else if i + j != 0 {
-          (
-            table.cell(
-              fill: rgb(90%, 90%, ((10 - calc.abs(i - j)) / 20 * 100%)),
-              text(fill: rgb(0, 0, 0))[$#(i + j)$],
-            ),
-          )
-        } else {
-          (
-            table.cell(
-              fill: rgb("#7eff4f"),
-              text(fill: rgb(0, 0, 0))[$times$],
-            ),
-          )
+            )
+          } else if i + j != 0 {
+            (
+              table.cell(
+                fill: rgb(90%, 90%, ((10 - calc.abs(i - j)) / 20 * 100%)),
+                text(fill: rgb(0, 0, 0))[$#(i + j)$],
+              ),
+            )
+          } else {
+            (
+              table.cell(
+                fill: rgb("#7eff4f"),
+                text(fill: rgb(0, 0, 0))[$times$],
+              ),
+            )
+          }
+        }
+      },
+    ),
+  )
+}
+#let n = 500
+#figure(
+  caption: "1 - " + str(n) + " 质数表",
+  table(
+    columns: 10,
+    ..for i in range(2, n) {
+      let flag = 1
+      for j in range(2, i) {
+        if j < i and calc.rem-euclid(i, j) == 0 {
+          flag = 0
+          break
         }
       }
-    },
+      if flag == 1 {
+        ([#i],)
+      }
+    }
   ),
 )
+
+==== 三线表
+#{
+  let header = ("项目", "产量", "销量", "产值", "比重")
+  let projects = (
+    ("手机", 1000, 10000, 500),
+    ("计算机", 5500, 5000, 220),
+    ("笔记本电脑", 1100, 1000, 280),
+  )
+  let footer = ("合计",) + projects.reduce((a, b) => a.zip(b).map(x => x.at(0) + x.at(1))).slice(1) + ("100%",)
+  projects = projects.map(x => x + (repr(x.at(3) / footer.at(3) * 100%),))
+  figure(
+    three-line-table(
+      header: header,
+      ..projects,
+      footer: footer,
+    ),
+  )
+}
 
 #conclusion()[
   本文结论……。
