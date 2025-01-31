@@ -41,7 +41,6 @@
   // - show-codelines: 配置代码行样式
   show: show-cn-fakebold
   show: show-fix-indent
-  show: show-figure
   show: show-paper-page-size
   show: show-codelines
 
@@ -89,6 +88,7 @@
   // 应用自定义标题样式和页脚（使用"1"样式）
   show: show-heading
   show: show-paper-footer.with(style: "1")
+  show: show-figure
 
   body
 }

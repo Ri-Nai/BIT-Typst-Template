@@ -83,7 +83,6 @@ $ #[LRI] = 1 \/ sqrt(1 + (frac(mu_R, mu_s))^2 (sigma_R / sigma_S)^2) $<LRI>
 == 如同 `markdown` 一样好用的代码块
 
 
-
 Oh my god, it's `python`.
 
 Oh my god, it's ```cpp int main()```
@@ -99,6 +98,7 @@ int main() {
 }
 ```
 
+
 == 数学模式
 
 与`LaTeX` 基本一致。$a^2 + b^2 = c^2$ 表示行内公式。
@@ -110,15 +110,72 @@ $ a^2 + b^2 = c^2 $ 表示行间公式。（mathmode）
 
 列表我没有专门做，样式还是原本的。
 
-+ 有序列表
-+ aaa
-+ ccb
+Typst 支持嵌套列表体系，可通过缩进实现层级结构：
+
+1. 有序列表
+2. 混合列表类型
+  - 无序子项
+  - 支持多种标记符号
+    + 二级嵌套项
+    + 自定义符号支持
 
 - 无序列表
-- aaa
-- ccb
+  - 常规短横线
+  1. 嵌套有序项
+  2. 自动缩进对齐
 
+== 图表
 
+=== 图片
+#figure(
+  image(
+    width: 30%,
+    "assets/bit-logo.png",
+  ),
+  caption: "BIT Logo",
+)
+
+=== 表格
+
+==== 内置表格
+
+#figure(
+  caption: "九九乘法表",
+  table(
+    columns: (auto,) * 10,
+    ..for i in range(10) {
+      for j in range(10) {
+        if i * j != 0 {
+          (
+            table.cell(
+              fill: rgb(
+                ((10 - calc.abs(i - j)) / 20 * 100%),
+                ((10 - calc.abs(i - j)) / 20 * 100%),
+                90%,
+              ),
+              text(fill: rgb(255, 255, 255))[
+                $#(i * j)$],
+            ),
+          )
+        } else if i + j != 0 {
+          (
+            table.cell(
+              fill: rgb(90%, 90%, ((10 - calc.abs(i - j)) / 20 * 100%)),
+              text(fill: rgb(0, 0, 0))[$#(i + j)$],
+            ),
+          )
+        } else {
+          (
+            table.cell(
+              fill: rgb("#7eff4f"),
+              text(fill: rgb(0, 0, 0))[$times$],
+            ),
+          )
+        }
+      }
+    },
+  ),
+)
 
 #conclusion()[
   本文结论……。
