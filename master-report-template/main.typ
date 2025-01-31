@@ -328,12 +328,24 @@ Typst 支持嵌套列表体系，可通过缩进实现层级结构：
 
 // 内置引用函数
 #cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>)
-// 模板自定义引用函数，可以引用多个文献
-#cite(<Hajela2012Application>)
-#cite(<张伯伟2002全唐五代诗格会考>)
+
+#cite(<OBRIEN1994Aircraft>)aaa#cite(<张伯伟2002全唐五代诗格会考>)
+
+#cite(<OBRIEN1994Aircraft>)#cite(<张伯伟2002全唐五代诗格会考>)
+
 #cite(<OBRIEN1994Aircraft>)
+#cite(<张伯伟2002全唐五代诗格会考>)
+
+#cite(<Hajela2012Application>)
+#cite(<Sobieski>)
+
+// 模板自定义引用函数，可以引用多个文献
+#bib-cite(<fengxiqiao>, <Sobieszczanski>, <jiangxizhou>, <xiexide>, <yaoboyuan>)
+
+#bib-cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>, <Hajela2012Application>)
 
 #bib-cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>, <Hajela2012Application>, <张伯伟2002全唐五代诗格会考>, <OBRIEN1994Aircraft>, <雷光春2012>, <白书农>, <zhanghesheng>, <Sobieski>, <fengxiqiao>, <Sobieszczanski>, <jiangxizhou>, <xiexide>, <yaoboyuan>)
+
 
 #conclusion()[
   本文结论……。
