@@ -1,7 +1,7 @@
 #import "styles/set-paper-page.typ": *
 #import "styles/set-heading.typ": *
 #import "styles/set-figure.typ": show-figure
-#import "styles/set-codelines.typ": *
+#import "styles/set-code.typ": *
 
 #import "utils/ziti.typ": *
 #import "utils/indent-funs.typ": *
@@ -38,11 +38,11 @@
   // - show-fix-indent: 修正段落缩进
   // - show-figure: 配置图表、公式样式
   // - show-paper-page-size: 设置页面大小和边距
-  // - show-codelines: 配置代码行样式
+  // - show-code: 配置代码行样式
   show: show-cn-fakebold
   show: show-fix-indent
   show: show-paper-page-size
-  show: show-codelines
+  show: show-code
 
   // 生成论文封面
   cover(
