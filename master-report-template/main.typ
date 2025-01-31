@@ -2,6 +2,8 @@
 #import "pages/supplementary.typ": *
 #import "utils/three-line-table.typ": three-line-table
 #import "utils/indent-funs.typ": indent
+#import "utils/bib-citation.typ": bib-cite
+
 
 #show: paper.with(
   title: "北京理工大学本科生毕业设计（论文）题目",
@@ -305,22 +307,30 @@ $
 
 Typst 支持嵌套列表体系，可通过缩进实现层级结构：
 
-1. 有序列表
-2. 混合列表类型
++ 有序列表
++ #lorem(40)
++ 混合列表类型
   - 无序子项
   - 支持多种标记符号
-    + 二级嵌套项
-    + 自定义符号支持
-
-a
-aaaa
-
-+ 1
+    1. 二级嵌套项
+    2. 自定义符号支持
 - 无序列表
+- #lorem(40)
   - 常规短横线
   1. 嵌套有序项
   2. 自动缩进对齐
-    + ?
+
+== 参考文献引用
+
+引用时直接根据 `bib` 文件中的 `key` 作为参数引用即可。
+
+// 内置引用函数
+#cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>)
+
+// 模板自定义引用函数，可以引用多个文献
+#bib-cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>, <Hajela2012Application>, <张伯伟2002全唐五代诗格会考>, <OBRIEN1994Aircraft>, <雷光春2012>, <白书农>, <zhanghesheng>, <Sobieski>, <fengxiqiao>, <Sobieszczanski>, <jiangxizhou>, <xiexide>, <yaoboyuan>)
+
+
 #conclusion()[
   本文结论……。
 
