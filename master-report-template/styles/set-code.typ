@@ -1,4 +1,4 @@
-#let show-codelines(body) = {
+#let show-code(body) = {
   show raw.where(block: false): box.with(
     fill: luma(240),
     inset: (x: 3pt, y: 0pt),
