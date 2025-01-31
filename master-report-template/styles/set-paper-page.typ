@@ -1,4 +1,4 @@
-#import "ziti.typ": *
+#import "../utils/ziti.typ": *
 
 #let show-paper-page-size(body) = {
   set page(
@@ -37,6 +37,14 @@
       text(font: songti, 10pt, baseline: -3pt, context counter(page).display(style))
     },
   )
+
+  body
+}
+
+#let show-mainbody(body) = {
+  set text(font: songti, cn-zh("小四"), hyphenate: false)
+
+  set par(leading: 1.15em, first-line-indent: 2em, justify: true)
 
   body
 }

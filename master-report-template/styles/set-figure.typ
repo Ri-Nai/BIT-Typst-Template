@@ -1,5 +1,5 @@
 #import "@preview/i-figured:0.2.4"
-#import "ziti.typ": *
+#import "../utils/ziti.typ": *
 
 // copied from https://github.com/werifu/HUST-typst-template/blob/main/utilities/set-numbering.typ and set-figure.typ
 
