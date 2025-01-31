@@ -1,9 +1,4 @@
-#import "template.typ": paper
-#import "pages/supplementary.typ": *
-#import "utils/three-line-table.typ": three-line-table
-#import "utils/indent-funs.typ": indent
-#import "utils/bib-citation.typ": bib-cite
-
+#import "template.typ": *
 
 #show: paper.with(
   title: "北京理工大学本科生毕业设计（论文）题目",
