@@ -1,6 +1,7 @@
 #import "template.typ": paper
-#import "utils/three-line-table.typ": three-line-table
 #import "pages/supplementary.typ": *
+#import "utils/three-line-table.typ": three-line-table
+#import "utils/indent-funs.typ": indent
 
 #show: paper.with(
   title: "北京理工大学本科生毕业设计（论文）题目",
@@ -41,7 +42,7 @@
   caption: "标题序号",
 )
 
-\
+\ // 加一个空段（ \ 表示换行）
 
 表-示例：【阅后删除此段】
 
@@ -58,16 +59,17 @@
   caption: "统计表",
 )
 
-\
+#linebreak() // linebreak 也是换行的意思
 
-公式标注应于该公式所在行的最右侧。对于较长的公式只可在符号处（$+$、$-$、$*$、$\/$、$<=$ $>=$等）转行。在文中引用公式时，在标号前加“式”，如式（1-2）。【阅后删除此段】
+公式标注应于该公式所在行的最右侧。对于较长的公式只可在符号处（$+$、$-$、$*$、$\/$、$<=$ $>=$等）转行。在文中引用公式时，在标号前加“式”，如@eqt:LRI。【阅后删除此段】
 公式-示例：【阅后删除此段】
 
-$ #[LRI] = 1 \/ sqrt(1 + (frac(mu_R, mu_s))^2 (sigma_R / sigma_S)^2) $
+$ #[LRI] = 1 \/ sqrt(1 + (frac(mu_R, mu_s))^2 (sigma_R / sigma_S)^2) $<LRI>
 
 
+#pagebreak() // pagebreak 分页
+// #pagebreak(weak: true) // weak 分页，表示若下面是空白页则不分页
 
-#pagebreak()
 
 = typst 用法部分示例
 
@@ -81,18 +83,7 @@ $ #[LRI] = 1 \/ sqrt(1 + (frac(mu_R, mu_s))^2 (sigma_R / sigma_S)^2) $
 == 如同 `markdown` 一样好用的代码块
 
 
-#show raw.where(block: false): box.with(
-  fill: luma(240),
-  inset: (x: 3pt, y: 0pt),
-  outset: (y: 3pt),
-  radius: 2pt,
-)
-#show raw.where(block: true): block.with(
-  fill: luma(240),
-  inset: 10pt,
-  radius: 4pt,
-  width: 100%,
-)
+
 Oh my god, it's `python`.
 
 Oh my god, it's ```cpp int main()```
@@ -110,8 +101,51 @@ int main() {
 
 == 数学模式
 
+与`LaTeX` 基本一致。$a^2 + b^2 = c^2$ 表示行内公式。
+$ a^2 + b^2 = c^2 $ 表示行间公式。（mathmode）
+
+符号可能有点不大相同，以及再也不用加 `\{}` 了。
+
+== 列表
+
+列表我没有专门做，样式还是原本的。
+
++ 有序列表
++ aaa
++ ccb
+
+- 无序列表
+- aaa
+- ccb
+
+
+
+#conclusion()[
+  本文结论……。
+
+  结论作为毕业设计（论文）正文的最后部分单独排写，但不加章号。结论是对整个论文主要结果的总结。在结论中应明确指出本研究的创新点，对其应用前景和社会、经济价值等加以预测和评价，并指出今后进一步在本研究方向进行研究工作的展望与设想。结论部分的撰写应简明扼要，突出创新性。【阅后删除此段】
+
+  结论正文样式与文章正文相同：宋体、小四；行距：22磅；间距段前段后均为0行。【阅后删除此段】
+
+]
+
 #references("./ref.bib")
 
-#appendices()[]
+#appendices()[
 
-#acknowledgements()[]
+  附录相关内容…
+
+  附录是毕业设计（论文）主体的补充项目，为了体现整篇文章的完整性，写入正文又可能有损于论文的条理性、逻辑性和精炼性，这些材料可以写入附录段，但对于每一篇文章并不是必须的。附录依次用大写正体英文字母A、B、C……编序号，如附录A、附录B。【阅后删除此段】
+
+  附录正文样式与文章正文相同：宋体、小四；行距：22磅；间距段前段后均为0行。【阅后删除此段】
+
+]
+
+#acknowledgements()[
+
+  值此论文完成之际，首先向我的导师……
+
+  致谢正文样式与文章正文相同：宋体、小四；行距：22磅；间距段前段后均为0行。【阅后删除此段】
+
+]
+

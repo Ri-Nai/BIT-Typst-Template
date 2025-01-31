@@ -1,4 +1,4 @@
-// copied from https://github.com/werifu/HUST-typst-template/blob/main/utilities/indent-funs.typ 
+// copied from https://github.com/werifu/HUST-typst-template/blob/main/utilities/indent-funs.typ
 
 // 缩进相关函数
 #let indent() = {
@@ -17,14 +17,14 @@
 
 #let show-fix-indent(body) = {
   // 首段不缩进，手动加上 box
-  show heading: it => {
-    it + empty_par()
-  }
-  show figure: it => {
-    it + empty_par()
-  }
   show math.equation.where(block: true): it => {
     it + empty_par()
+  }
+  show enum: it => {
+    it + empty_par()
+  }
+  show list: it => {
+    it +  empty_par()
   }
 
   body
