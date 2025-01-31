@@ -23,11 +23,13 @@
   show figure: it => {
     it + empty_par()
   }
+  set enum(indent: 2em)
+  set list(indent: 2em)
   show enum: it => {
     it + empty_par()
   }
   show list: it => {
-    it +  empty_par()
+    it + empty_par()
   }
 
   body
