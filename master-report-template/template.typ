@@ -55,6 +55,7 @@
     author: author,
     student-id: student-id,
     guide-teacher: guide-teacher,
+    date: date,
   )
 
   // 生成原创性声明
