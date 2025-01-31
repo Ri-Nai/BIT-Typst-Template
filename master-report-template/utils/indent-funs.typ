@@ -20,6 +20,9 @@
   show math.equation.where(block: true): it => {
     it + empty_par()
   }
+  show figure: it => {
+    it + empty_par()
+  }
   show enum: it => {
     it + empty_par()
   }
