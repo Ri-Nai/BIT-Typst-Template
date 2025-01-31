@@ -1,4 +1,4 @@
-#import "ziti.typ": *
+#import "../utils/ziti.typ": *
 
 #let show-heading(body) = {
 
