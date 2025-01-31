@@ -29,6 +29,7 @@
   student-id: "",
   guide-teacher: "",
   date: datetime.today(),
+  declear: true,
   abstract-content: [],
   abstract-en-content: [],
   keywords: (),
@@ -61,7 +62,7 @@
   )
 
   // 生成原创性声明
-  declaration()
+  if declear { declaration() }
 
   // 设置文档显示样式：
   // - show-paper-header: 显示论文页眉
