@@ -24,10 +24,11 @@
   title: "AC自动机的原理及应用",
   college: "计算机学院",
   major: "软件工程",
-  class: "计科2301",
+  class: "软工2301",
   author: "杨紫诺",
   student-id: "1120231313",
   guide-teacher: "暂无求包养",
+  declear: false,
   date: datetime(year: 2024, month: 1, day: 19),
 )
 
