@@ -80,6 +80,12 @@ $ #[LRI] = 1 \/ sqrt(1 + (frac(mu_R, mu_s))^2 (sigma_R / sigma_S)^2) $<LRI>
 ==== 四级标题我没特意设置了
 ===== 五级标题我也不知道到底长啥样了
 
+=== 标题引用 <title-citation>
+
+在 标题后面加上标签 `<label-name>` ，然后在文中引用时，使用 `@label-name` 即可。
+
+例如：在 @title-citation 中，展示了标题引用的例子。
+
 == 如同 `markdown` 一样好用的代码块
 
 
@@ -87,7 +93,7 @@ Oh my god, it's `python`.
 
 Oh my god, it's ```cpp int main()```
 
-Oh my god, it's code-lines
+Oh my god, it's Hello, World!
 
 ```cpp
 #include <iostream>
@@ -98,51 +104,200 @@ int main() {
 }
 ```
 
-
 == 数学模式
 
 与`LaTeX` 基本一致。$a^2 + b^2 = c^2$ 表示行内公式。
-$ a^2 + b^2 = c^2 $ 表示行间公式。（mathmode）
+$ a^2 + b^2 = c^2 $ 表示行间公式。
 
 符号可能有点不大相同，做了很多智能化的操作，以及再也不用加 `\{}` 了。
 
+=== 公式引用 <formula-citation>
 
-#let code-display(code) = (
-  raw(code, lang: "typst", block: true),
-  eval(code),
-)
-#table(
-  align: horizon,
-  columns: (auto,),
-  // inset: 1pt,
-  inset: (x, y) => if calc.even(y) { 1pt } else { 5pt },
-  ..code-display("$ 1 / 2 $
+与 @title-citation 类似，公式引用也是一样的。
+
+在公式后面加上标签 `<label-name>` ，然后在文中引用时，使用 `@eqt:label-name` 即可。
+
+例如
+
+$ a^2 + b^2 = c^2 $ <gougu>
+
+@eqt:gougu 是勾股定理。
+
+=== 数学模式示例
+
+@tbl:math-mode-example 展示了一些数学模式的例子。
+
+
+#[
+  #let code-display(code) = (
+    raw(code, lang: "typst", block: true),
+    eval(code),
+  )
+  #show <math-mode-example>: it => {
+    show figure: set block(breakable: true)
+    set table.cell(breakable: true)
+    it
+  }
+  #figure(
+    table(
+      align: horizon,
+      columns: (auto,),
+      // inset: 1pt,
+      inset: (x, y) => if calc.even(y) { 1pt } else { 5pt },
+      ..code-display("$ 1 / 2 $
 $ frac(1, 2) $
 $ sqrt(2) $"),
 
-  ..code-display("$
+      ..code-display("$
   pi(i) = cases(
     #[$0, i = 0$],
     #[$max{k | k < i, s[0...k-1] = s[i-(k-1)...i]}, 0 < i < n$]
   )
 $"),
-  // 二维正态分布密度函数
-  ..code-display("$
-  f(x, y) = frac(1, 2  pi  sigma_x  sigma_y) dot e^(-frac(1, 2) (
-    frac((x - mu_x)^2, sigma_x^2) + frac((y - mu_y)^2, sigma_y^2) +
+      // 二维正态分布密度函数
+      ..code-display("$
+  f(x, y) = frac(1, 2  pi  sigma_x  sigma_y)
+  dot e^(-frac(1, 2)(
+    frac((x - mu_x)^2, sigma_x^2) +
+    frac((y - mu_y)^2, sigma_y^2) +
     2 rho frac((x - mu_x)(y - mu_y), sigma_x sigma_y)
   ))
 $
 $
-  f(x, y) = & frac(1, 2  pi  sigma_x  sigma_y)\
-  dot & exp(-frac(1, 2)(
+  f(x, y) = & frac(1, 2  pi  sigma_x  sigma_y) \ // 使用 \ 来换行
+  dot & exp(-frac(1, 2)(  // 使用 & 来对齐，类似于 LaTeX
     frac((x - mu_x)^2, sigma_x^2) +
     frac((y - mu_y)^2, sigma_y^2) +
     2 rho frac((x - mu_x)(y - mu_y), sigma_x sigma_y)
   ))
 $
 "),
-)
+    ),
+    caption: "数学模式示例",
+    kind: table,
+  ) <math-mode-example>
+]
+
+== 图表
+
+=== 图片
+#figure(
+  image(
+    width: 30%,
+    "assets/bit-logo.png",
+  ),
+  caption: "BIT Logo",
+) <bit-logo>
+
+=== 表格简单示例
+
+#figure(
+  table(
+    columns: 3,
+    [姓名], [年龄], [性别],
+    [张三], [18], [男],
+    [李四], [19], [女],
+    [王五], [20], [男],
+  ),
+  caption: "学生信息表",
+  kind: table, // 如果使用 table 函数创建的话不需要设置 kind，即该行可以省略
+) <student-info>
+
+#figure(
+  three-line-table(
+    header: ("项目", "产量", "销量", "产值", "比重"),
+    ("手机", 1000, 10000, 500, "50%"),
+    ("计算机", 5500, 5000, 220, "22%"),
+    ("笔记本电脑", 1100, 1000, 280, "28%"),
+    footer: ("合计", 7600, 16000, 1000, "100%"),
+  ),
+  caption: "统计表",
+  kind: table,
+) <stat-table>
+
+=== 图表引用
+
+与 @title-citation 和 @formula-citation 类似，图表引用也是一样的。
+
+我们需要在图表后面加上标签 `<label-name>` ，然后在文中引用时，使用 `@label-name` 或 `@tbl:label-name / @fig:label-name` （取决于是表还是图）即可。
+
+@bit-logo 是北京理工大学的 Logo。 
+
+@fig:bit-logo 也是北京理工大学的 Logo。
+
+@student-info 是学生信息表。
+
+@tbl:stat-table 是统计表。
+
+=== 编程写法
+
+`Typst` 里表格 `table` 函数的写法自由度很高，可以翻阅文档查看更多用法。
+
+这里展示了几个比较经典的类函数式编程写法。
+
+// 防止作用域滥用
+#[
+  #let cell(i, j) = if i * j != 0 {
+    table.cell(
+      fill: rgb(
+        ((10 - calc.abs(i - j)) / 20 * 100%),
+        ((10 - calc.abs(i - j)) / 20 * 100%),
+        90%,
+      ),
+      text(fill: rgb(255, 255, 255))[$#(i * j)$],
+    )
+  } else if i + j != 0 {
+    table.cell(
+      fill: rgb(90%, 90%, ((10 - calc.abs(i - j)) / 20 * 100%)),
+      text(fill: rgb(0, 0, 0))[$#(i + j)$],
+    )
+  } else {
+    table.cell(
+      fill: rgb("#7eff4f"),
+      text(fill: rgb(0, 0, 0))[$times$],
+    )
+  }
+  #show figure: set block(breakable: true)
+  #figure(
+    caption: "九九乘法表",
+    table(
+      columns: 10,
+      ..range(10).map(i => range(10).map(j => cell(i, j))).flatten(),
+    ),
+  ) <99-table>
+]
+#[
+  #let n = 500
+  #figure(
+    caption: "1 - " + str(n) + " 质数表",
+    table(
+      columns: 10,
+      ..range(2, n + 1)
+        .filter(x => range(2, calc.floor(calc.sqrt(x)) + 1).all(y => calc.rem-euclid(x, y) != 0))
+        .map(x => repr(x)),
+    ),
+  )
+]
+
+#[
+  #let header = ("项目", "产量", "销量", "产值", "比重")
+  #let projects = (
+    ("手机", 1000, 10000, 500),
+    ("计算机", 5500, 5000, 220),
+    ("笔记本电脑", 1100, 1000, 280),
+  )
+  #let footer = ("合计",) + projects.reduce((a, b) => a.zip(b).map(x => x.at(0) + x.at(1))).slice(1) + ("100%",)
+  #(projects = projects.map(x => x + (repr(x.at(3) / footer.at(3) * 100%),)))
+  #figure(
+    three-line-table(
+      header: header,
+      ..projects,
+      footer: footer,
+    ),
+    caption: "统计表",
+    kind: table,
+  )
+]
 
 == 列表
 
@@ -157,103 +312,15 @@ Typst 支持嵌套列表体系，可通过缩进实现层级结构：
     + 二级嵌套项
     + 自定义符号支持
 
+a
+aaaa
+
++ 1
 - 无序列表
   - 常规短横线
   1. 嵌套有序项
   2. 自动缩进对齐
-
-== 图表
-
-=== 图片
-#figure(
-  image(
-    width: 30%,
-    "assets/bit-logo.png",
-  ),
-  caption: "BIT Logo",
-)
-
-=== 表格
-
-==== 内置表格
-#{
-  show figure: set block(breakable: true)
-  figure(
-    caption: "九九乘法表",
-    table(
-      columns: (2em,) * 10,
-      ..for i in range(10) {
-        for j in range(10) {
-          if i * j != 0 {
-            (
-              table.cell(
-                fill: rgb(
-                  ((10 - calc.abs(i - j)) / 20 * 100%),
-                  ((10 - calc.abs(i - j)) / 20 * 100%),
-                  90%,
-                ),
-                text(fill: rgb(255, 255, 255))[$#(i * j)$],
-              ),
-            )
-          } else if i + j != 0 {
-            (
-              table.cell(
-                fill: rgb(90%, 90%, ((10 - calc.abs(i - j)) / 20 * 100%)),
-                text(fill: rgb(0, 0, 0))[$#(i + j)$],
-              ),
-            )
-          } else {
-            (
-              table.cell(
-                fill: rgb("#7eff4f"),
-                text(fill: rgb(0, 0, 0))[$times$],
-              ),
-            )
-          }
-        }
-      },
-    ),
-  )
-}
-#let n = 500
-#figure(
-  caption: "1 - " + str(n) + " 质数表",
-  table(
-    columns: 10,
-    ..for i in range(2, n) {
-      let flag = 1
-      for j in range(2, i) {
-        if j < i and calc.rem-euclid(i, j) == 0 {
-          flag = 0
-          break
-        }
-      }
-      if flag == 1 {
-        ([#i],)
-      }
-    }
-  ),
-)
-
-==== 三线表
-#{
-  let header = ("项目", "产量", "销量", "产值", "比重")
-  let projects = (
-    ("手机", 1000, 10000, 500),
-    ("计算机", 5500, 5000, 220),
-    ("笔记本电脑", 1100, 1000, 280),
-  )
-  let footer = ("合计",) + projects.reduce((a, b) => a.zip(b).map(x => x.at(0) + x.at(1))).slice(1) + ("100%",)
-  projects = projects.map(x => x + (repr(x.at(3) / footer.at(3) * 100%),))
-  figure(
-    three-line-table(
-      header: header,
-      ..projects,
-      footer: footer,
-    ),
-  )
-}
-
+    + ?
 #conclusion()[
   本文结论……。
 
