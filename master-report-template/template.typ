@@ -6,12 +6,14 @@
 #import "utils/ziti.typ": *
 #import "utils/indent-funs.typ": *
 #import "utils/three-line-table.typ": three-line-table
+#import "utils/bib-citation.typ": bib-cite
 
 #import "pages/cover.typ": *
 #import "pages/declaration.typ": *
 #import "pages/abstract.typ": *
 #import "pages/abstract-en.typ": *
 #import "pages/contents.typ": *
+#import "pages/supplementary.typ": *
 
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 

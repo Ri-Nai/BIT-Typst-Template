@@ -2,12 +2,7 @@
 #import "@preview/fletcher:0.5.3" as fletcher: diagram, node, edge
 #import "@preview/lovelace:0.3.0": *
 
-#import "../utils/three-line-table.typ": three-line-table
-#import "../utils/indent-funs.typ": indent
-#import "../utils/bib-citation.typ": bib-cite
-
 #import "../template.typ": *
-#import "../pages/supplementary.typ": *
 
 #show figure: set block(breakable: true)
 #let algorithm = figure.with(supplement: "算法", kind: "algorithm")

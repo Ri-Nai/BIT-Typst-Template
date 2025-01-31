@@ -37,9 +37,7 @@
 将项目下载到本地后，用 `VSCode` 和 [`Tinymist`](https://Myriad-Dreamin.github.io/tinymist) 插件打开。可按照 [`main.typ`](https://github.com/Ri-Nai/BIT-Typst-Template/blob/main/master-report-template/main.typ) 格式进行写作：
 
 ```typst
-#import "template.typ": paper
-#import "utils/three-line-table.typ": three-line-table
-#import "pages/supplementary.typ": *
+#import "template.typ": *
 
 #show paper.with(
   ...
