@@ -324,12 +324,16 @@ Typst 支持嵌套列表体系，可通过缩进实现层级结构：
 
 引用时直接根据 `bib` 文件中的 `key` 作为参数引用即可。
 
+目前本模板采用的是 `Typst` 内置的 `gb-7714-2015-numeric` 格式。与学校的要求有一定出入。
+
 // 内置引用函数
 #cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>)
-
 // 模板自定义引用函数，可以引用多个文献
-#bib-cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>, <Hajela2012Application>, <张伯伟2002全唐五代诗格会考>, <OBRIEN1994Aircraft>, <雷光春2012>, <白书农>, <zhanghesheng>, <Sobieski>, <fengxiqiao>, <Sobieszczanski>, <jiangxizhou>, <xiexide>, <yaoboyuan>)
+#cite(<Hajela2012Application>)
+#cite(<张伯伟2002全唐五代诗格会考>)
+#cite(<OBRIEN1994Aircraft>)
 
+#bib-cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>, <Hajela2012Application>, <张伯伟2002全唐五代诗格会考>, <OBRIEN1994Aircraft>, <雷光春2012>, <白书农>, <zhanghesheng>, <Sobieski>, <fengxiqiao>, <Sobieszczanski>, <jiangxizhou>, <xiexide>, <yaoboyuan>)
 
 #conclusion()[
   本文结论……。
