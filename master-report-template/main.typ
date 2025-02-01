@@ -33,6 +33,7 @@
 
 正文部分：宋体、小四；正文行距：22磅；间距段前段后均为0行。【阅后删除此段】
 图、表居中，图注标在图下方，表头标在表上方，宋体、五号、居中，1.25倍行距，间距段前段后均为0行，图表与上下文之间各空一行。【阅后删除此段】
+
 图-示例：【阅后删除此段】
 
 #figure(
@@ -140,8 +141,7 @@ $ a^2 + b^2 = c^2 $ <gougu>
     table(
       align: horizon,
       columns: (auto,),
-      // inset: 1pt,
-      inset: (x, y) => if calc.even(y) { 1pt } else { 5pt },
+      fill: (x, y) => if calc.even(y) { luma(240) } else { none },
       ..code-display("$ 1 / 2 $
 $ frac(1, 2) $
 $ sqrt(2) $"),
@@ -213,17 +213,22 @@ $
   kind: table,
 ) <stat-table>
 
+=== breakable 参数
+
+`figure` 函数有 `block` 参数，可以设置为 `breakable: true` 来实现跨页显示。
+
+即 `set figure.block(breakable: true)`。
+
+如 @tbl:math-mode-example 和 @tbl:99-table 就是跨页显示的表格。
+
+
 === 图表引用
 
 与 @title-citation 和 @formula-citation 类似，图表引用也是一样的。
 
-我们需要在图表后面加上标签 `<label-name>` ，然后在文中引用时，使用 `@label-name` 或 `@tbl:label-name / @fig:label-name` （取决于是表还是图）即可。
+我们需要在图表后面加上标签 `<label-name>` ，然后在文中引用时，使用 `@tbl:label-name / @fig:label-name` （取决于是表还是图）即可。
 
-@bit-logo 是北京理工大学的 Logo。
-
-@fig:bit-logo 也是北京理工大学的 Logo。
-
-@student-info 是学生信息表。
+@fig:bit-logo 是北京理工大学的 Logo。
 
 @tbl:stat-table 是统计表。
 
