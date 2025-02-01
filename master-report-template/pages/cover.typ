@@ -96,6 +96,7 @@
   )[
     #date.year() 年 #date.month() 月 #date.day() 日
   ]
+  v(0.6em)
   
   pagebreak(weak: true)
 }
