@@ -8,6 +8,8 @@
 
 ![example](docs/assets/example.png)
 
+![contrast](docs/assets/contrast.png)
+
 > [!CAUTION]
 > 本模板不保证完全符合学校要求，使用时请自行检查是否符合。 <br>
 > 本人目前就读大二，对毕业设计了解有限，模板为个人制作，可能存在不准确之处。 <br>
