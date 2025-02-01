@@ -1,6 +1,7 @@
 #import "template.typ": *
 
 #show: paper.with(
+  subject: "本科生毕业设计(论文)",
   title: "北京理工大学本科生毕业设计（论文）题目",
   title-en: "The Subject of Undergraduate Graduation Project (Thesis) of Beijing Institute of Technology",
   college: "计算机学院",
@@ -218,7 +219,7 @@ $
 
 我们需要在图表后面加上标签 `<label-name>` ，然后在文中引用时，使用 `@label-name` 或 `@tbl:label-name / @fig:label-name` （取决于是表还是图）即可。
 
-@bit-logo 是北京理工大学的 Logo。 
+@bit-logo 是北京理工大学的 Logo。
 
 @fig:bit-logo 也是北京理工大学的 Logo。
 
@@ -339,7 +340,21 @@ Typst 支持嵌套列表体系，可通过缩进实现层级结构：
 
 #bib-cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>, <Hajela2012Application>)
 
-#bib-cite(<yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>, <Hajela2012Application>, <张伯伟2002全唐五代诗格会考>, <OBRIEN1994Aircraft>, <雷光春2012>, <白书农>, <zhanghesheng>, <Sobieski>, <fengxiqiao>, <Sobieszczanski>, <jiangxizhou>, <xiexide>, <yaoboyuan>)
+#bib-cite(
+  <yuFeiJiZongTiDuoXueKeSheJiYouHuaDeXianZhuangYuFaZhanFangXiang2008>,
+  <Hajela2012Application>,
+  <张伯伟2002全唐五代诗格会考>,
+  <OBRIEN1994Aircraft>,
+  <雷光春2012>,
+  <白书农>,
+  <zhanghesheng>,
+  <Sobieski>,
+  <fengxiqiao>,
+  <Sobieszczanski>,
+  <jiangxizhou>,
+  <xiexide>,
+  <yaoboyuan>,
+)
 
 
 #conclusion()[
