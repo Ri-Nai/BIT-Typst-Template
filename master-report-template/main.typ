@@ -147,8 +147,8 @@ $ sqrt(2) $"),
 
       ..code-display("$
   pi(i) = cases(
-    #[$0, i = 0$],
-    #[$max{k | k < i, s[0...k-1] = s[i-(k-1)...i]}, 0 < i < n$]
+    #[$0, quad i = 0$],
+    #[$max{k | k < i, s[0...k-1] = s[i-(k-1)...i]}, quad 0 < i < n$]
   )
 $"),
       // 二维正态分布密度函数
