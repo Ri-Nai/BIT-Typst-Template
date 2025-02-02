@@ -12,7 +12,6 @@
     #v(1.8em)
   ]
 
-  set text(size: cn-zh("小四"), font: "SimSun")
 
   context {
     let contents-location = locate(<contents>)

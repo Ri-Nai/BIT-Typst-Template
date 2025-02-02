@@ -42,10 +42,12 @@
   // - show-figure: 配置图表、公式样式
   // - show-paper-page-size: 设置页面大小和边距
   // - show-code: 配置代码行样式
+  // - show-mainbody: 设置论文正文格式
   show: show-cn-fakebold
   show: show-fix-indent
   show: show-paper-page-size
   show: show-code
+  show: show-mainbody
 
   // 生成论文封面
   cover(
@@ -67,10 +69,8 @@
   // 设置文档显示样式：
   // - show-paper-header: 显示论文页眉
   // - show-paper-footer: 显示论文页脚，使用"I"样式
-  // - show-mainbody: 设置论文正文格式
   show: show-paper-header
   show: show-paper-footer.with(style: "I")
-  show: show-mainbody
 
   // 生成中文摘要
   abstract(

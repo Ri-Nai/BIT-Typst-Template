@@ -61,7 +61,6 @@
   )
 
   set par(leading: 1em)
-  set text(font: "SimSun")
 
   show: cn-zihao("三号")
 
@@ -69,7 +68,7 @@
   let info_key(key) = (
     align(
       right,
-      key.clusters().join((4 - key.clusters().len()) * " " * 2) + "：",
+      key.clusters().join((4 - key.clusters().len()) * h(1em)) + "：",
     )
   )
 
@@ -90,13 +89,10 @@
     info_key("指导教师"), info_value(guide-teacher),
   )
   v(1fr)
-  text(
-    font: "SimSun",
-    size: 16pt,
-  )[
-    #date.year() 年 #date.month() 月 #date.day() 日
+  [
+    #date.year()#h(0.5em)年#h(0.5em)#date.month()#h(0.5em)月#h(0.5em)#date.day()#h(0.5em)日
   ]
   v(0.6em)
-  
+
   pagebreak(weak: true)
 }
