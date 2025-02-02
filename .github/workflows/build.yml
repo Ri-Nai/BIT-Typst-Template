@@ -1,0 +1,56 @@
+name: Build PDFs
+on:
+  push:
+    branches: [ main ]  # 仅监听 main 分支推送
+
+permissions:
+  contents: read  # 只需读取权限
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        template: 
+          - path: "slides-template/main.typ"
+            output: "slides.pdf"
+          - path: "slides-template/samples/sample.typ"
+            output: "slides-sample.pdf"
+          - path: "undergraduate-thesis-template/main.typ"
+            output: "thesis.pdf"
+          - path: "undergraduate-thesis-template/samples/sample.typ"
+            output: "thesis-sample.pdf"
+    steps:
+      # 步骤 1: 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 步骤 2: 下载字体
+      - name: Download fonts
+        run: |
+          mkdir -p fonts
+          curl -L -o fonts.tgz https://github.com/Ri-Nai/BIT-Typst-Template/releases/download/assets/fonts.tgz
+          tar -xzf fonts.tgz -C fonts/
+          echo "✅ 字体下载完成"
+
+      # 步骤 3: 安装 Typst
+      - name: Setup Typst
+        # You may pin to the exact commit or the version.
+        # uses: typst-community/setup-typst@bf23b5bbaead4a583e631c2823ce2b3569fa7d17
+        uses: typst-community/setup-typst@v2.0.1
+        with:
+          # The token used to authenticate when fetching Typst distributions. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+          version: v0.12.0
+          
+
+      # 步骤 4: 编译文档
+      - name: Compile document
+        run: |
+          typst compile --font-path ./fonts --root ./ ${{ matrix.template.path }} ${{ matrix.template.output }}
+
+      # 步骤 5: 上传产物到 Artifacts
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.template.output }}
+          path: ${{ matrix.template.output }}
