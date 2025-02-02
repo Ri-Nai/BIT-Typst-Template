@@ -12,15 +12,15 @@
     table.hline(stroke: 1.5pt),
     ..if header != () {
       (
-        table.header(..header.map(str)),
+        table.header(..header.map(x => [#x])),
         table.hline(stroke: 0.5pt),
       )
     },
-    ..values.pos().map(fill-blank).flatten().map(str),
+    ..values.pos().map(fill-blank).flatten().map(x => [#x]),
     ..if footer != () {
       (
         table.hline(stroke: 0.5pt),
-        table.footer(..footer.map(str)),
+        table.footer(..footer.map(x => [#x])),
       )
     },
     table.hline(stroke: 1.5pt)
