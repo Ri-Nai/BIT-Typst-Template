@@ -24,7 +24,7 @@
         numbering(it.numbering, ..counter(heading).at(it.location()))
         // 重点是这里的空格
         // 如果直接在 numberfunc 里加空格，间距会略大（因为本身就自带间距)
-        "  "
+        h(0.5em)
       }
       it.body
     } else {
