@@ -54,7 +54,6 @@
     ("笔记本电脑", 1100, 1000, 280, "28%"),
     footer: ("合计", 7600, 16000, 1000, "100%"),
   ),
-  kind: table,
   caption: "统计表",
 )
 
@@ -172,7 +171,6 @@ $
 "),
     ),
     caption: "数学模式示例",
-    kind: table,
   ) <math-mode-example>
 ]
 
@@ -198,7 +196,6 @@ $
     [王五], [20], [男],
   ),
   caption: "学生信息表",
-  kind: table, // 如果使用 table 函数创建的话不需要设置 kind，即该行可以省略
 ) <student-info>
 
 #figure(
@@ -210,7 +207,6 @@ $
     footer: ("合计", 7600, 16000, 1000, "100%"),
   ),
   caption: "统计表",
-  kind: table,
 ) <stat-table>
 
 === breakable 参数
@@ -298,7 +294,6 @@ $
       footer: footer,
     ),
     caption: "统计表",
-    kind: table,
   )
 ]
 
