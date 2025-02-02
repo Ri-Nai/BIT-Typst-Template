@@ -17,6 +17,10 @@
 
 #let show-fix-indent(body) = {
   // 首段不缩进，手动加上 box
+
+  show heading: it => {
+    it + empty_par()
+  }
   show math.equation.where(block: true): it => {
     it + empty_par()
   }
