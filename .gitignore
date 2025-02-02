@@ -1,0 +1,15 @@
+# Output files
+*.pdf
+
+# Temporary files
+*.tmp
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE specific files
+.vscode/
+
+# Typst cache files
+.typst-cache/
