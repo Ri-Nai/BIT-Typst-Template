@@ -41,7 +41,8 @@
     </date>
     <!-- 页码/日期之间的分隔符显示不同格式的横杠（或其它标点） -->
     <terms>
-      <term name="citation-range-delimiter">-</term>
+      <!-- error: data did not match any variant of untagged enum Term -->
+      <!-- 我不清楚怎么回事。 -->
       <term name="page-range-delimiter">-</term>
     </terms>
   </locale>
@@ -108,7 +109,9 @@
           </else>
         </choose>
         <choose>
-          <if variable="book chapter" match="any">
+          <!-- error: data did not match any variant of untagged enum Variable -->
+          <!-- 不存在 book chapter 变量，条件写错了，应该是比条目类型 -->
+          <if type="book chapter" match="any">
             <text macro="book-volume"/>
           </if>
         </choose>
@@ -353,9 +356,8 @@
       <if variable="URL">
         <!-- <text variable="URL"/> -->
       </if>
-      <else>
-        <!-- <text variable="DOI" prefix="https://doi.org/"/> -->
-      </else>
+      <!-- error: missing field `$value` -->
+      <!-- `<else>`不允许是空的 -->
     </choose>
   </macro>
   <!-- 连续出版物的年卷期 -->
@@ -460,10 +462,8 @@
     </layout>
   </citation>
   <bibliography entry-spacing="0" et-al-min="4" et-al-use-first="3" second-field-align="flush">
-    <layout locale="en">
-      <text variable="citation-number" prefix="[" suffix="]"/>
-      <text macro="entry-layout"/>
-    </layout>
+    <!-- error: duplicate field `layout` -->
+    <!-- 不支持 CSL-M -->
     <layout>
       <text variable="citation-number" prefix="[" suffix="]"/>
       <text macro="entry-layout"/>
