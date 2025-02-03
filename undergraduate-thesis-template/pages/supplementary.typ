@@ -31,13 +31,11 @@
 }
 
 #let references(
-  style: "gb-7714-2015-numeric",
   ..path,
 ) = supplematry-page(
   title: "参考文献",
   bibliography(
     title: none,
-    style: style,
     ..path,
   ),
 )

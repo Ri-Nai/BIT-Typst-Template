@@ -49,6 +49,15 @@
   show: show-code
   show: show-mainbody
 
+  
+  // 设置参考文献风格：
+  // - 使用 GB/T 7714-2005 数字格式引用样式
+  // - 可选择使用北京理工大学自定义引用样式（需取消注释第二行）
+  // 注：只能选择使用其中一种样式，请根据需要选择合适的引用格式
+
+  set bibliography(style: "gb-7714-2005-numeric")
+  // set bibliography(style: "assets/beijing-institute-of-technology.csl")
+
   // 生成论文封面
   cover(
     subject: subject,
