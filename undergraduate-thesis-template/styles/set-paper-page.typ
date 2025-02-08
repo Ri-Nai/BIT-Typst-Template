@@ -16,11 +16,11 @@
   body
 }
 
-#let show-paper-header(body) = {
+#let show-paper-header(header, body) = {
   set page(
     header: {
       set text(font: songti, cn-zh("四号"), tracking: 1pt)
-      align(center)[北京理工大学本科生毕业设计（论文）]
+      align(center, header)
       v(-0.8em)
       line(length: 100%, stroke: 0.7pt)
     },

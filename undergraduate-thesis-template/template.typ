@@ -34,6 +34,7 @@
   abstract-en-content: [],
   keywords: (),
   keywords-en: (),
+  header: "北京理工大学本科生毕业设计（论文）",
   body,
 ) = {
   // 应用模板样式和格式设置：
@@ -78,7 +79,7 @@
   // 设置文档显示样式：
   // - show-paper-header: 显示论文页眉
   // - show-paper-footer: 显示论文页脚，使用"I"样式
-  show: show-paper-header
+  show: show-paper-header.with(header)
   show: show-paper-footer.with(style: "I")
 
   // 生成中文摘要
