@@ -1,4 +1,4 @@
-#import "../utils/ziti.typ": *
+#import "../utils/ziti.typ": zh, zihao, songti
 
 #let show-paper-page-size(body) = {
   set page(
@@ -16,11 +16,11 @@
   body
 }
 
-#let show-paper-header(body) = {
+#let show-paper-header(header, body) = {
   set page(
     header: {
-      set text(font: songti, cn-zh("四号"), tracking: 1pt)
-      align(center)[北京理工大学本科生毕业设计（论文）]
+      set text(font: songti, zh("四号"), tracking: 1pt)
+      align(center, header)
       v(-0.8em)
       line(length: 100%, stroke: 0.7pt)
     },
@@ -42,7 +42,7 @@
 }
 
 #let show-mainbody(body) = {
-  set text(font: songti, cn-zh("小四"), hyphenate: false)
+  set text(font: songti, zh("小四"), hyphenate: false)
 
   set par(leading: 1.15em, first-line-indent: 2em, justify: true)
 

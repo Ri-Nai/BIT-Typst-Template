@@ -1,4 +1,4 @@
-#import "../utils/ziti.typ": cn-zihao, cn-zh
+#import "../utils/ziti.typ": zh, zihao
 
 #let abstract(
   title: "",
@@ -10,7 +10,7 @@
     return
   } 
   #let zh-title(it) = {
-    set text(font: "SimHei", weight: "bold", size: cn-zh("小二"))
+    set text(font: "SimHei", weight: "bold", size: zh("小二"))
 
     set align(center)
     v(1em)
@@ -18,7 +18,7 @@
   }
 
   #show heading.where(level: 1): it => {
-    set text(font: "SimHei", size: cn-zh("三号"))
+    set text(font: "SimHei", size: zh("三号"))
 
     set align(center)
     v(0.6em)

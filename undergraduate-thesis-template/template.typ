@@ -1,19 +1,19 @@
-#import "styles/set-paper-page.typ": *
-#import "styles/set-heading.typ": *
+#import "styles/set-paper-page.typ": show-paper-page-size, show-paper-header, show-paper-footer, show-mainbody
+#import "styles/set-heading.typ": show-heading
 #import "styles/set-figure.typ": show-figure
-#import "styles/set-code.typ": *
+#import "styles/set-code.typ": show-code
 
-#import "utils/ziti.typ": *
-#import "utils/indent-funs.typ": *
+#import "utils/ziti.typ": zh, zihao
+#import "utils/indent-funs.typ": show-fix-indent, indent
 #import "utils/three-line-table.typ": three-line-table
 #import "utils/bib-citation.typ": bib-cite
 
-#import "pages/cover.typ": *
-#import "pages/declaration.typ": *
-#import "pages/abstract.typ": *
-#import "pages/abstract-en.typ": *
-#import "pages/contents.typ": *
-#import "pages/supplementary.typ": *
+#import "pages/cover.typ": cover
+#import "pages/declaration.typ": declaration
+#import "pages/abstract.typ": abstract
+#import "pages/abstract-en.typ": abstract-en
+#import "pages/contents.typ": contents
+#import "pages/supplementary.typ": supplematry-page, references, conclusion, acknowledgements, appendices
 
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 
@@ -34,6 +34,7 @@
   abstract-en-content: [],
   keywords: (),
   keywords-en: (),
+  header: "北京理工大学本科生毕业设计（论文）",
   body,
 ) = {
   // 应用模板样式和格式设置：
@@ -49,7 +50,7 @@
   show: show-code
   show: show-mainbody
 
-  
+
   // 设置参考文献风格：
   // - 使用 GB/T 7714-2005 数字格式引用样式
   // - 可选择使用北京理工大学自定义引用样式（需取消注释第二行）
@@ -78,7 +79,7 @@
   // 设置文档显示样式：
   // - show-paper-header: 显示论文页眉
   // - show-paper-footer: 显示论文页脚，使用"I"样式
-  show: show-paper-header
+  show: show-paper-header.with(header)
   show: show-paper-footer.with(style: "I")
 
   // 生成中文摘要
