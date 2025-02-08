@@ -1,6 +1,3 @@
-#import "../utils/ziti.typ": cn-zihao, cn-zh
-
-
 #let declaration() = {
   set page(
     paper: "a4",

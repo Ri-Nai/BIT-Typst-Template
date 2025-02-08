@@ -1,4 +1,4 @@
-#import "../utils/ziti.typ": cn-zihao, cn-zh
+#import "../utils/ziti.typ": zh, zihao
 
 #let abstract-en(
   title: "",
@@ -11,7 +11,7 @@
   }
 
   #let en-title(it) = {
-    set text(weight: "bold", size: cn-zh("三号"))
+    set text(weight: "bold", size: zh("三号"))
     set par(justify: false)
     set align(center)
     v(1.5em)
@@ -19,7 +19,7 @@
   }
 
   #show heading.where(level: 1): it => {
-    set text(size: cn-zh("三号"), weight: "regular")
+    set text(size: zh("三号"), weight: "regular")
 
     set align(center)
     v(3em)
