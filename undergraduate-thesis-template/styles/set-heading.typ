@@ -33,19 +33,19 @@
   }
   show heading.where(level: 1): it => {
     set align(center)
-    show: cn-zihao("三号")
+    show: zihao("三号")
     v(0.6em)
     it
     v(0.4em)
   }
   show heading.where(level: 2): it => {
-    show: cn-zihao("四号")
+    show: zihao("四号")
     v(0.6em)
     it
     v(0.3em)
   }
   show heading.where(level: 3): it => {
-    show: cn-zihao("小四")
+    show: zihao("小四")
     v(0.6em)
     it
     v(0.1em)

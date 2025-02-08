@@ -1,11 +1,11 @@
-#import "../utils/ziti.typ": cn-zihao, cn-zh
+#import "../utils/ziti.typ": *
 
 // inspired from 璜珀's blog https://blog.hpcesia.com/posts/5252cfe9/ 
 #let contents() = {
   align(center)[
     #v(0.6em)
     #text(
-      size: cn-zh("三号"),
+      size: zh("三号"),
       font: "SimHei",
       "目　录",
     )<contents>

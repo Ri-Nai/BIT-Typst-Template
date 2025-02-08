@@ -1,12 +1,12 @@
-#import "../utils/ziti.typ": cn-zihao, cn-zh
+#import "../utils/ziti.typ": *
 
 #let declaration() = [
   #set par(leading: 0.96em, justify: true, first-line-indent: 2em, spacing: 1em)
 
-  #set text(font: "SimSun", size: cn-zh("小三"))
+  #set text(font: "SimSun", size: zh("小三"))
 
   #show heading.where(level: 1): it => {
-    set text(font: "SimHei", size: cn-zh("二号"), weight: "bold")
+    set text(font: "SimHei", size: zh("二号"), weight: "bold")
     set align(center)
     v(1em)
     it

@@ -14,7 +14,7 @@
 
 #let show-caption(body) = {
   show figure.where(kind: table): set figure.caption(position: top)
-  show figure.caption: set text(font: songti, size: cn-zh("五号"))
+  show figure.caption: set text(font: songti, size: zh("五号"))
   set figure.caption(separator: h(0.5em))
 
   body

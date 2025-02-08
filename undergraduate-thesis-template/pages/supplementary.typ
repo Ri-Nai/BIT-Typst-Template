@@ -10,7 +10,7 @@
   set heading(numbering: numberfunc)
   show heading.where(level: 1): it => {
     set align(center)
-    show: cn-zihao("三号")
+    show: zihao("三号")
     v(-0.5em)
     text(weight: "regular", it)
     v(0.2em)

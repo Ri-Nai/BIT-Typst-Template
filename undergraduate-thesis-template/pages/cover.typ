@@ -1,4 +1,4 @@
-#import "../utils/ziti.typ": cn-zihao, cn-zh
+#import "../utils/ziti.typ": *
 
 
 
@@ -16,16 +16,16 @@
   cover-logo-path: "../assets/header.png",
 ) = {
   set align(center)
-  show: cn-zihao("五号")
+  show: zihao("五号")
 
   v(6em)
 
   image(cover-logo-path, width: 9.87cm)
 
-  v(-0.8 * cn-zh("小初"))
+  v(-0.8 * zh("小初"))
 
   text(
-    size: cn-zh("小初"),
+    size: zh("小初"),
     // 由于使用了 fakebold，所以这里用不了 tracking 这个属性
     //在 word 里显示的是设置 3 磅的字间距，感觉是左右各包了 3 磅
     // tracking: 6pt,
@@ -37,13 +37,13 @@
   ]
 
 
-  v(-0.8 * cn-zh("小初"))
+  v(-0.8 * zh("小初"))
 
   box(
     height: 6.6cm,
     align(horizon)[
       #text(
-        size: cn-zh("二号"),
+        size: zh("二号"),
         font: "STxihei",
         weight: "bold",
         title,
@@ -52,7 +52,7 @@
       #set par(leading: 1.25em)
 
       #text(
-        size: cn-zh("三号"),
+        size: zh("三号"),
         font: "Times New Roman",
         weight: "bold",
         title-en,
@@ -62,7 +62,7 @@
 
   set par(leading: 1em)
 
-  show: cn-zihao("三号")
+  show: zihao("三号")
 
 
   let info_key(key) = (
