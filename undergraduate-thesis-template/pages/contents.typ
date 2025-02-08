@@ -1,4 +1,4 @@
-#import "../utils/ziti.typ": *
+#import "../utils/ziti.typ": zh, zihao
 
 // inspired from 璜珀's blog https://blog.hpcesia.com/posts/5252cfe9/ 
 #let contents() = {

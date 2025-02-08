@@ -1,4 +1,4 @@
-#import "../utils/ziti.typ": *
+#import "../utils/ziti.typ": zh, zihao
 
 #let declaration() = [
   #set par(leading: 0.96em, justify: true, first-line-indent: 2em, spacing: 1em)
