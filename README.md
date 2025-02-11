@@ -33,6 +33,7 @@
 2. 使用包管理器安装：
 
    ```sh
+   cargo install --locked typst-cli
    choco install typst
    winget install typst
    ...
@@ -62,7 +63,9 @@
 
 #### 📚 引用格式
 
-目前使用的 `Typst` 内置的 `gb-7714-2015-numeric` 引用格式与学校要求的格式略有差异。通过 [zotero-chinese/styles](https://github.com/zotero-chinese/styles/blob/main/src/beijing-institute-of-technology/beijing-institute-of-technology.csl) 下载的 `csl` 文件无法直接在 Typst 中使用，还没搞懂如何导入。
+目前使用的 `Typst` 内置的 `gb-7714-2015-numeric` 引用格式与学校要求的格式略有差异。通过 [zotero-chinese/styles](https://github.com/zotero-chinese/styles/blob/main/src/beijing-institute-of-technology/beijing-institute-of-technology.csl) 下载的 `csl` 文件可能效果好些，不过仍未完全满足 Word 中的格式。
+
+据 https://github.com/BITNP/BIThesis/discussions/401#discussioncomment-8198542 反馈，本科生毕业设计（论文）的参考文献格式要求就是 `GB/T 7714-2015`，不需要特别的格式。
 
 #### 🔤 字体格式
 
@@ -87,7 +90,7 @@
 
 ## 🎭 slides-template
 
-此为我在制作[数据结构-研学报告](https://github.com/Ri-Nai/BIT-Lexue-Code/blob/main/Data-Structure/Research-Report/1120231313-%E6%B1%87%E6%8A%A5.typ) 时使用的 Slides 模板，基于 [touying-buaa](https://github.com/Coekjan/touying-buaa) 项目。
+此为我在制作[数据结构-研学报告](https://github.com/Ri-Nai/BIT-Lexue-Code/blob/main/Data-Structure/Research-Report/1120231313-%E6%B1%87%E6%8A%A5.typ) 时使用的 Slides 模板，完全基于 [touying-buaa](https://github.com/Coekjan/touying-buaa) 项目。
 
 ![example](docs/assets/example-touying.png)
 
