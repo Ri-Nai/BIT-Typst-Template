@@ -8,13 +8,13 @@
       size: zh("三号"),
       font: "SimHei",
       "目　录",
-    )<contents>
+    )
     #v(1.8em)
   ]
 
 
   context {
-    let contents-location = locate(<contents>)
+    let contents-location = here()
     show outline.entry: it => {
       let loc = it.element.location()
       link(
