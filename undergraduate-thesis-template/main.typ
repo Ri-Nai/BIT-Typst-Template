@@ -278,12 +278,11 @@ $
       columns: 10,
       [1],
       ..range(2, n + 1).map(x => table.cell(
-          fill: if range(2, calc.floor(calc.sqrt(x)) + 1).all(y => calc.rem-euclid(x, y) != 0) {
-            luma(200)
-          },
-          str(x),
-        ),
-      )),
+        fill: if range(2, calc.floor(calc.sqrt(x)) + 1).all(y => calc.rem-euclid(x, y) != 0) {
+          luma(200)
+        },
+        str(x),
+      ))
     ),
   )
 ]
