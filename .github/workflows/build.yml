@@ -40,7 +40,7 @@ jobs:
         uses: typst-community/setup-typst@v2.0.1
         with:
           # The token used to authenticate when fetching Typst distributions. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
-          version: v0.12.0
+          version: v0.13.0
           
 
       # 步骤 4: 编译文档
