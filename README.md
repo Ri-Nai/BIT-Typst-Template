@@ -10,6 +10,10 @@
 
 ![contrast](docs/assets/contrast.png)
 
+可以在 [GitHub Actions](https://github.com/Ri-Nai/BIT-Typst-Template/actions/workflows/build.yml) 中查看最新的 PDF 输出。
+
+<!-- 或者在 [Releases](https://github.com/Ri-Nai/BIT-Typst-Template/releases) 中下载 -->
+
 > [!CAUTION]
 > 本模板不保证完全符合学校要求，使用时请自行检查是否符合。 <br>
 > 本人目前就读大二，对毕业设计了解有限，模板为个人制作，可能存在不准确之处。 <br>
@@ -23,7 +27,7 @@
 
 ### 🛠️ 运行环境
 
-💻 Typst 0.12.0
+💻 Typst 0.13.0
 
 ### 🚀 使用方法
 
