@@ -1,6 +1,6 @@
-#import "@preview/cetz:0.3.1"
-#import "@preview/fletcher:0.5.2" as fletcher: node, edge
-#import "@preview/touying:0.5.5": *
+#import "@preview/cetz:0.3.2"
+#import "@preview/fletcher:0.5.5"
+#import "@preview/fletcher:0.5.5": node, edge
 #import "@preview/lovelace:0.3.0": *
 #import "../touying-bit.typ": *
 // cetz and fletcher bindings for touying

@@ -1,6 +1,6 @@
-#import "@preview/cetz:0.3.1"
-#import "@preview/fletcher:0.5.2" as fletcher: node, edge
-#import "@preview/touying:0.5.3": *
+#import "@preview/cetz:0.3.2"
+#import "@preview/fletcher:0.5.5"
+#import "@preview/fletcher:0.5.5": node, edge
 #import "touying-bit.typ": *
 
 
@@ -16,7 +16,7 @@
   font: "Noto Sans SC",
   // Basic information
   config-info(
-    title: [A BIT Typst Slide Template Based on BUAA Typst Slide Template Based on Touying],
+    title: [A BIT Typst Slide Template Based on touying-buaa Template Based on Touying],
     subtitle: [基于 基于 Touying 的北京航空航天大学 Typst 幻灯片模板 的北京理工大学 Typst 幻灯片模板],
     author: [Ri-Nai],
     date: datetime.today(),

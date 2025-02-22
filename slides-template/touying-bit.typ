@@ -2,7 +2,7 @@
 // Stargazer theme - adapted for BIT color-theme
 // the original theme is https://github.com/Coekjan/touying-buaa
 
-#import "@preview/touying:0.5.5": *
+#import "@preview/touying:0.6.0": *
 #import themes.stargazer: *
 
 #let bit-theme(
