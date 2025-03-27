@@ -4,7 +4,7 @@
 #import "styles/set-code.typ": show-code
 
 #import "utils/ziti.typ": zh, zihao
-#import "utils/indent-funs.typ": show-fix-indent, indent
+#import "utils/indent-funs.typ": indent
 #import "utils/three-line-table.typ": three-line-table
 #import "utils/bib-citation.typ": bib-cite
 
@@ -45,7 +45,6 @@
   // - show-code: 配置代码行样式
   // - show-mainbody: 设置论文正文格式
   show: show-cn-fakebold
-  show: show-fix-indent
   show: show-paper-page-size
   show: show-code
   show: show-mainbody

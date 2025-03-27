@@ -44,7 +44,14 @@
 #let show-mainbody(body) = {
   set text(font: songti, zh("小四"), hyphenate: false)
 
-  set par(leading: 1.15em, first-line-indent: 2em, justify: true)
+  set par(
+    leading: 1.15em,
+    first-line-indent: (
+      amount: 2em,
+      all: true,
+    ),
+    justify: true,
+  )
 
   body
 }
