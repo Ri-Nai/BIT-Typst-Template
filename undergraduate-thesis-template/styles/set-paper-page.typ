@@ -53,10 +53,11 @@
 
 #let show-paper-footer(body, style: "1") = {
   context counter(page).update(1)
+  set page(numbering: style)
   set page(
     footer: {
       set align(center)
-      text(font: songti, zh("五号"), context counter(page).display(style))
+      text(font: songti, zh("五号"), context counter(page).display())
     },
   )
 
