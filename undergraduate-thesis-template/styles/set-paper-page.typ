@@ -35,21 +35,16 @@
 #let show-paper-header(header, body) = {
   set page(
     header: {
-      block(
-        // stroke: red,
-        {
-          set text(
-            font: songti,
-            zh("四号"),
-            tracking: 1pt,
-            top-edge: "ascender",
-            bottom-edge: "descender",
-          )
-          align(center, header)
-          v(-1.05em)
-          line(length: 100%, stroke: 0.75pt)
-        },
+      set text(
+        font: songti,
+        zh("四号"),
+        tracking: 1pt,
+        top-edge: "ascender",
+        bottom-edge: "descender",
       )
+      align(center, header)
+      v(-1.05em)
+      line(length: 100%, stroke: 0.75pt)
     },
   )
 
