@@ -10,13 +10,14 @@
   set heading(numbering: numberfunc)
   show heading.where(level: 1): it => {
     set align(center)
+    set text(weight: "regular")
     show: zihao("三号")
-    v(-0.5em)
-    text(weight: "regular", it)
-    v(0.2em)
+    v(-1em)
+    it
+    v(-0.4em)
   }
-  pagebreak(weak: true)
   [
+    #pagebreak(weak: true)
     = #{
       let title-length = title.clusters().len()
       if title-length >= 4 {
@@ -27,7 +28,6 @@
     }
   ]
   body
-  pagebreak(weak: true)
 }
 
 #let references(

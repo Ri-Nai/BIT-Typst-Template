@@ -1,5 +1,5 @@
 #import "../utils/ziti.typ": zh, zihao
-
+#import "../styles/set-paper-page.typ": top-diff
 
 
 #let cover(
@@ -17,7 +17,7 @@
 ) = {
   set align(center)
   show: zihao("五号")
-
+  v(-top-diff)
   v(6em)
 
   image(cover-logo-path, width: 9.87cm)

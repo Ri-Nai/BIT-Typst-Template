@@ -1,15 +1,15 @@
 #import "../utils/ziti.typ": zh, zihao
-
+#import "../styles/set-paper-page.typ": top-diff
 // inspired from 璜珀's blog https://blog.hpcesia.com/posts/5252cfe9/
 #let contents() = {
   align(center)[
+    #v(-top-diff)
     #v(0.6em)
     #text(
       size: zh("三号"),
       font: "SimHei",
       "目　录",
     )
-    #v(1.8em)
   ]
 
 
@@ -34,7 +34,6 @@
         ),
       )
     }
-    v(-1em)
     outline(title: [], indent: 2em)
   }
   pagebreak()

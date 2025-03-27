@@ -1,4 +1,5 @@
 #import "../utils/ziti.typ": zh, zihao
+#import "../styles/set-paper-page.typ": top-diff
 
 #let abstract(
   title: "",
@@ -8,7 +9,7 @@
 
   #if content == [] {
     return
-  } 
+  }
   #let zh-title(it) = {
     set text(font: "SimHei", weight: "bold", size: zh("小二"))
 
@@ -25,7 +26,7 @@
     it
     v(1.4em)
   }
-
+  #v(-top-diff)
   #zh-title(title)
 
   = 摘#h(1em)要
