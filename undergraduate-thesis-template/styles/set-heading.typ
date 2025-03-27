@@ -15,7 +15,7 @@
   // copied from https://github.com/werifu/HUST-typst-template/blob/main/utilities/set-heading.typ 
   // 参考自 https://github.com/nju-lug/modern-nju-thesis/blob/main/utils/custom-heading.typ
   show heading: it => {
-    set text(weight: "bold", font: heiti)
+    set text(font: heiti)
 
     // 做标题的原理，不用看
     if it != none {
