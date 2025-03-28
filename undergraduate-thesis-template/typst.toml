@@ -1,0 +1,16 @@
+[package]
+name = "bit-undergraduate-thesis-template"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Ri_Nai_@outlook.com"]
+license = "MIT"
+description = ""
+homepage = "https://github.com/Ri-Nai/BIT-Typst-Template"
+repository = "https://github.com/Ri-Nai/BIT-Typst-Template"
+keywords = ["thesis", "BIT", "Beijing Institute of Technology"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+description = "A Typst template for undergraduate thesis of Beijing Institute of Technology."
