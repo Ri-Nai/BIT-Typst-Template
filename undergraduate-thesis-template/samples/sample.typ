@@ -28,7 +28,7 @@
   author: "杨紫诺",
   student-id: "1120231313",
   guide-teacher: "暂无求包养",
-  declear: false,
+  declare: false,
   date: datetime(year: 2024, month: 1, day: 19),
 )
 
