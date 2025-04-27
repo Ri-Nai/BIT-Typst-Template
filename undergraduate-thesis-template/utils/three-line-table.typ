@@ -14,6 +14,7 @@
   table(
     columns: columns,
     stroke: none,
+    align: center + horizon,
     table.hline(stroke: 1.5pt),
     ..if header != () {
       (
