@@ -42,7 +42,7 @@
         bottom-edge: "descender",
       )
       align(center, header)
-      v(-1.05em)
+      v(-0.9em)
       line(length: 100%, stroke: 0.75pt)
     },
   )
