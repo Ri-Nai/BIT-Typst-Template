@@ -31,6 +31,7 @@
     }
   }
   show heading.where(level: 1): it => {
+    pagebreak(weak: true)
     set align(center)
     show: zihao("三号")
     set block(

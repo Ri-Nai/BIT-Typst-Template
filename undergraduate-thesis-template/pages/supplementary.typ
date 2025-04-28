@@ -17,7 +17,6 @@
     v(-0.4em)
   }
   [
-    #pagebreak(weak: true)
     = #{
       let title-length = title.clusters().len()
       if title-length >= 4 {
