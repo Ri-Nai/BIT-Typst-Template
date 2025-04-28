@@ -45,6 +45,8 @@
 
 #### 📖 使用模板
 
+##### 1. 📝 在包内写作
+
 将项目下载到本地后，用 `VSCode` 和 [`Tinymist`](https://Myriad-Dreamin.github.io/tinymist) 插件打开。可按照 [`main.typ`](https://github.com/Ri-Nai/BIT-Typst-Template/blob/main/master-report-template/main.typ) 格式进行写作：
 
 ```typst
@@ -61,6 +63,32 @@
 #appendices()[]
 
 #acknowledgements()[]
+```
+
+##### 2. 📦 将项目下载到本地包路径
+
+如果你觉得每次都要导入模板文件太麻烦，我们可以将项目安装到本地包路径，这样就可以像导入头文件一样方便地使用了。
+
+> [!NOTE]
+> 我不上传到 [typst universe](https://typst.app/universe) 的原因是感觉自己写的校内模板没必要上传到公共的领域，虽然各种 `modern-xxu-thesis` 很多，但感觉还是好怪。
+> 因此，大家可以学着将项目克隆到本地，然后安装到本地包路径。
+
+```bash
+git clone https://github.com/Ri-Nai/BIT-Typst-Template.git
+cd BIT-Typst-Template
+
+./install.sh # 适用于 Linux 和 MacOS
+./install.ps1 # 适用于 Windows
+```
+
+安装完成后，你就可以这样使用模板了：
+
+```typst
+#import "@local/bit-undergraduate-thesis-template:0.1.1": *
+
+#show paper.with(
+  ...
+)
 ```
 
 ### ❗ 目前存在的问题
