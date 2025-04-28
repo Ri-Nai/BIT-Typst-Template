@@ -1,5 +1,4 @@
 #import "../utils/ziti.typ": zh, zihao
-#import "../styles/set-paper-page.typ": top-diff
 
 #let abstract-en(
   title: "",
@@ -7,7 +6,8 @@
   keywords: (),
 ) = [
 
-  #v(-top-diff)
+  #set par(leading: 1.25em)
+  #v(-0.5em)
   #if content == [] {
     return
   }

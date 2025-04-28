@@ -1,12 +1,12 @@
 #import "../utils/ziti.typ": zh, zihao
-#import "../styles/set-paper-page.typ": top-diff
 
 #let abstract(
   title: "",
   content: [],
   keywords: (),
 ) = [
-
+  
+  #v(-0.5em)
   #if content == [] {
     return
   }
@@ -26,7 +26,6 @@
     it
     v(1.4em)
   }
-  #v(-top-diff)
   #zh-title(title)
 
   = 摘#h(1em)要

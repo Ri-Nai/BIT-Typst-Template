@@ -1,5 +1,4 @@
 #import "../utils/ziti.typ": zh, zihao
-#import "../styles/set-paper-page.typ": top-diff
 
 
 #let cover(
@@ -17,29 +16,30 @@
 ) = {
   set align(center)
   show: zihao("五号")
-  v(-top-diff)
-  v(6em)
+  v(5.5em)
 
   image(cover-logo-path, width: 9.87cm)
 
-  v(-0.8 * zh("小初"))
+  show: zihao("小初")
+  v(-0.8em)
 
-  text(
-    size: zh("小初"),
-    // 由于使用了 fakebold，所以这里用不了 tracking 这个属性
-    //在 word 里显示的是设置 3 磅的字间距，感觉是左右各包了 3 磅
-    // tracking: 6pt,
-    font: "SimSun",
-    weight: "bold",
-  )[
-    #let tracking = 6pt
-    #subject.clusters().join(h(tracking))
-  ]
+  block(
+    below: 0.3em,
+    text(
+      // 由于使用了 fakebold，所以这里用不了 tracking 这个属性
+      //在 word 里显示的是设置 3 磅的字间距，感觉是左右各包了 3 磅
+      // tracking: 6pt,
+      font: "SimSun",
+      weight: "bold",
+    )[
+      #let tracking = 6pt
+      #subject.clusters().join(h(tracking))
+    ],
+  )
 
 
-  v(-0.8 * zh("小初"))
-
-  box(
+  block(
+    below: 0.6em,
     height: 6.6cm,
     align(horizon)[
       #text(
@@ -89,10 +89,15 @@
     info_key("指导教师"), info_value(guide-teacher),
   )
   v(1fr)
-  [
-    #date.year()#h(0.5em)年#h(0.5em)#date.month()#h(0.5em)月#h(0.5em)#date.day()#h(0.5em)日
-  ]
-  v(0.6em)
+  (
+    [#date.year()],
+    [年],
+    [#date.month()],
+    [月],
+    [#date.day()],
+    [日],
+  ).join(h(0.5em))
+  v(0.5em)
 
   pagebreak(weak: true)
 }

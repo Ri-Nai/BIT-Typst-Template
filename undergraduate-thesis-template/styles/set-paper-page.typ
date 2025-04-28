@@ -8,7 +8,6 @@
   header-distance: 2.4cm,
   footer-distance: 2cm,
 )
-#let top-diff = paper-page-size.top - 3.6cm // 3.6cm 是历史版本的默认值，防止页面发生偏移
 
 #let show-paper-page-size(body) = {
   let top = paper-page-size.top
