@@ -15,28 +15,16 @@
 #import "pages/contents.typ": contents
 #import "pages/supplementary.typ": supplematry-page, references, conclusion, acknowledgements, appendices
 
+#import "config.typ": default-config, get-config
+
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 
 
 #let paper(
-  subject: "",
-  title: "",
-  title-en: "",
-  college: "",
-  major: "",
-  class: "",
-  author: "",
-  student-id: "",
-  guide-teacher: "",
-  date: datetime.today(),
-  declare: true,
-  abstract-content: [],
-  abstract-en-content: [],
-  keywords: (),
-  keywords-en: (),
-  header: "北京理工大学本科生毕业设计（论文）",
+  config: default-config,
   body,
 ) = {
+  let config = get-config(config)
   // 应用模板样式和格式设置：
   // - show-cn-fakebold: 为中文字符应用伪粗体效果
   // - show-fix-indent: 修正段落缩进
@@ -60,39 +48,39 @@
 
   // 生成论文封面
   cover(
-    subject: subject,
-    title: title,
-    title-en: title-en,
-    college: college,
-    major: major,
-    class: class,
-    author: author,
-    student-id: student-id,
-    guide-teacher: guide-teacher,
-    date: date,
+    subject: config.page.subject,
+    title: config.page.title,
+    title-en: config.page.title-en,
+    college: config.info.college,
+    major: config.info.major,
+    class: config.info.class,
+    author: config.info.author,
+    student-id: config.info.student-id,
+    guide-teacher: config.info.guide-teacher,
+    date: config.info.date,
   )
 
   // 生成原创性声明
-  if declare { declaration() }
+  if config.page.show-declaration { declaration() }
 
   // 设置文档显示样式：
   // - show-paper-header: 显示论文页眉
   // - show-paper-footer: 显示论文页脚，使用"I"样式
-  show: show-paper-header.with(header)
+  show: show-paper-header.with(config.page.header)
   show: show-paper-footer.with(style: "I")
 
   // 生成中文摘要
   abstract(
-    title: title,
-    content: abstract-content,
-    keywords: keywords,
+    title: config.page.title,
+    content: config.page.abstract.content,
+    keywords: config.page.abstract.keywords,
   )
 
   // 生成英文摘要
   abstract-en(
-    title: title-en,
-    content: abstract-en-content,
-    keywords: keywords-en,
+    title: config.page.title-en,
+    content: config.page.abstract.content-en,
+    keywords: config.page.abstract.keywords-en,
   )
 
   // 生成目录

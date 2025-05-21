@@ -12,6 +12,7 @@
   student-id: "",
   guide-teacher: "",
   date: datetime.today(),
+  override-info: (:),
   cover-logo-path: "../assets/header.png",
 ) = {
   set align(center)
@@ -64,6 +65,18 @@
 
   show: zihao("三号")
 
+  let infos = (
+    "学院": college,
+    "专业": major,
+    "班级": class,
+    "学生姓名": author,
+    "学号": student-id,
+    "指导教师": guide-teacher,
+  )
+
+  if override-info.len() > 0 {
+    infos = override-info
+  }
 
   let info_key(key) = (
     align(
@@ -81,12 +94,13 @@
     columns: (6em, 14em),
     column-gutter: 1em,
     row-gutter: 0.9em,
-    info_key("学院"), info_value(college),
-    info_key("专业"), info_value(major),
-    info_key("班级"), info_value(class),
-    info_key("学生姓名"), info_value(author),
-    info_key("学号"), info_value(student-id),
-    info_key("指导教师"), info_value(guide-teacher),
+    ..infos
+      .pairs()
+      .map(info => (
+        info_key(info.at(0)),
+        info_value(info.at(1)),
+      ))
+      .flatten(),
   )
   v(1fr)
   (
