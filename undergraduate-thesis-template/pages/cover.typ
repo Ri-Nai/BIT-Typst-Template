@@ -1,4 +1,4 @@
-#import "../utils/ziti.typ": zh, zihao
+#import "../utils/ziti.typ": zh, zihao, songti, heiti
 
 
 #let cover(
@@ -13,10 +13,10 @@
   guide-teacher: "",
   date: datetime.today(),
   cover-logo-path: "../assets/header.png",
-  twoside:  false,
-  anonymous: false
+  twoside: false,
+  anonymous: false,
 ) = {
-  if anonymous {return }
+  if anonymous { return }
 
   set align(center)
   show: zihao("五号")
@@ -33,7 +33,7 @@
       // 由于使用了 fakebold，所以这里用不了 tracking 这个属性
       //在 word 里显示的是设置 3 磅的字间距，感觉是左右各包了 3 磅
       // tracking: 6pt,
-      font: "SimSun",
+      font: songti,
       weight: "bold",
     )[
       #let tracking = 6pt
@@ -48,7 +48,7 @@
     align(horizon)[
       #text(
         size: zh("二号"),
-        font: "STxihei",
+        font: heiti,
         weight: "bold",
         title,
       )
@@ -57,7 +57,7 @@
 
       #text(
         size: zh("三号"),
-        font: "Times New Roman",
+        font: songti,
         weight: "bold",
         title-en,
       )
@@ -103,5 +103,5 @@
   ).join(h(0.5em))
   v(0.5em)
 
-  pagebreak(weak: true,to:if twoside {"odd"})
+  pagebreak(weak: true, to: if twoside { "odd" })
 }

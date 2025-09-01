@@ -31,8 +31,8 @@
   abstract-en-content: [
     #lorem(40)
   ],
-  keywords: ("北京理工大学", "本科生", "毕业设计（论文）","Typst"),
-  keywords-en: ("BIT", "Undergraduate", "Graduation Project(Thesis)","Typst"),
+  keywords: ("北京理工大学", "本科生", "毕业设计（论文）", "Typst"),
+  keywords-en: ("BIT", "Undergraduate", "Graduation Project(Thesis)", "Typst"),
 )
 
 = 一级题目
@@ -201,7 +201,7 @@ $
 
 #figure(
   [
-    #set text(font: ("Times New Roman", "SimSun"), size: 10pt)
+    #set text(font: songti, size: 10pt)
     #set stack(dir: ttb, spacing: 0.5em)
     #set image(height: 2cm)
     #grid(
@@ -222,8 +222,8 @@ $
         table(
           align: center + horizon,
           columns: 3,
-          [姓名], [年龄], [性别], 
-          [张三], [18], [男], 
+          [姓名], [年龄], [性别],
+          [张三], [18], [男],
         ),
         caption: [常规表],
       ) <student-info>
@@ -259,8 +259,8 @@ $
 //在三线表里使用数学符号
 #figure(
   three-line-table(
-    header: ("参数", "值", "参数","值"),
-    ($rho$, $7.8 times 10^3 upright(k g \/ m^3) $, $nu$, 0.3 ),
+    header: ("参数", "值", "参数", "值"),
+    ($rho$, $7.8 times 10^3 upright(k g \/ m^3)$, $nu$, 0.3),
     ($L$, $6 upright(m m)$, $E$, $200 upright(G p a)$),
   ),
   caption: "参数表",

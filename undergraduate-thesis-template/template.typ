@@ -3,7 +3,7 @@
 #import "styles/set-figure.typ": show-figure
 #import "styles/set-code.typ": show-code
 
-#import "utils/ziti.typ": zh, zihao
+#import "utils/ziti.typ": zh, zihao, songti, heiti
 #import "utils/indent-funs.typ": indent
 #import "utils/three-line-table.typ": three-line-table
 #import "utils/bib-citation.typ": bib-cite

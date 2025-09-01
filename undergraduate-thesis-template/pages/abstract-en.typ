@@ -1,4 +1,4 @@
-#import "../utils/ziti.typ": zh, zihao
+#import "../utils/ziti.typ": zh, zihao, heiti
 
 #let abstract-en(
   title: "",
