@@ -199,18 +199,52 @@ $
   caption: "BIT Logo",
 ) <bit-logo>
 
-=== 表格简单示例
-
 #figure(
-  table(
-    columns: 3,
-    [姓名], [年龄], [性别],
-    [张三], [18], [男],
-    [李四], [19], [女],
-    [王五], [20], [男],
+  [
+    #set text(font: ("Times New Roman", "SimSun"), size: 10pt)
+    #set stack(dir: ttb, spacing: 0.5em)
+    #set image(height: 2cm)
+    #grid(
+      columns: 2,
+      gutter: 1em,
+      stack(image("assets/bit-logo.png"), [(a) 子图1]), stack(image("assets/bit-logo.png"), [(b) 子图2]),
+      stack(image("assets/bit-logo.png"), [(c) 子图3]), stack(image("assets/bit-logo.png"), [(d) 子图4]),
+    )],
+  caption: [多图示例],
+) <multiple-figures>
+
+=== 表格简单示例
+#align(
+  center,
+  (
+    stack(dir: ltr)[
+      #figure(
+        table(
+          align: center + horizon,
+          columns: 3,
+          [姓名], [年龄], [性别], 
+          [张三], [18], [男], 
+        ),
+        caption: [常规表],
+      ) <student-info>
+    ][
+      #h(50pt)
+    ][
+      #figure(
+        table(
+          columns: 4,
+          stroke: none,
+          table.hline(),
+          [$t$], [1], [2], [3],
+          table.hline(stroke: .5pt),
+          [$y$], [0.3s], [0.4s], [0.8s],
+          table.hline(),
+        ),
+        caption: [三线表],
+      ) <timing-tlt>
+    ]
   ),
-  caption: "学生信息表",
-) <student-info>
+)
 
 #figure(
   three-line-table(
