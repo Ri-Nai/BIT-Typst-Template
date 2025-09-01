@@ -13,7 +13,11 @@
   guide-teacher: "",
   date: datetime.today(),
   cover-logo-path: "../assets/header.png",
+  twoside:  false,
+  anonymous: false
 ) = {
+  if anonymous {return }
+
   set align(center)
   show: zihao("五号")
   v(5.5em)
@@ -99,5 +103,5 @@
   ).join(h(0.5em))
   v(0.5em)
 
-  pagebreak(weak: true)
+  pagebreak(weak: true,to:if twoside {"odd"})
 }

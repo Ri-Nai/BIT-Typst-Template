@@ -1,4 +1,4 @@
-#import "../utils/ziti.typ": zh, zihao
+#import "../utils/ziti.typ": zh, zihao, heiti
 
 #let abstract(
   title: "",
@@ -34,7 +34,7 @@
 
   #linebreak()
   #text(
-    font: "SimHei",
+    font: ("Times New Roman","SimHei"),//中文摘要英文关键词字体设置
     weight: "bold",
   )[
     关键词：#keywords.join("；")

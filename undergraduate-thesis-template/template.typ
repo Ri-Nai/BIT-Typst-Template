@@ -10,6 +10,7 @@
 
 #import "pages/cover.typ": cover
 #import "pages/declaration.typ": declaration
+#import "pages/declaration-typst.typ": declaration_typst
 #import "pages/abstract.typ": abstract
 #import "pages/abstract-en.typ": abstract-en
 #import "pages/contents.typ": contents
@@ -29,13 +30,15 @@
   student-id: "",
   guide-teacher: "",
   date: datetime.today(),
-  declare: true,
+  declare: false,
   abstract-content: [],
   abstract-en-content: [],
   keywords: (),
   keywords-en: (),
   header: "北京理工大学本科生毕业设计（论文）",
   body,
+  twoside: false,
+  anonymous: false,
 ) = {
   // 应用模板样式和格式设置：
   // - show-cn-fakebold: 为中文字符应用伪粗体效果
@@ -70,10 +73,13 @@
     student-id: student-id,
     guide-teacher: guide-teacher,
     date: date,
+    twoside: twoside, 
+    anonymous: anonymous,
   )
 
   // 生成原创性声明
-  if declare { declaration() }
+  if declare { declaration(twoside: twoside, anonymous: anonymous) } 
+  else {declaration_typst(twoside: twoside, anonymous: anonymous)}
 
   // 设置文档显示样式：
   // - show-paper-header: 显示论文页眉
@@ -94,6 +100,7 @@
     content: abstract-en-content,
     keywords: keywords-en,
   )
+  pagebreak(weak: true)
 
   // 生成目录
   contents()
