@@ -14,7 +14,7 @@
   guide-teacher: "暂无，求包养",
   date: datetime.today(),
   //date: datetime(year: 2025, month: 8, day: 31),
-  declare: false, // true:svg形式的声明页,faslse:typst生成的声明页
+  declare: false, // true:svg形式的声明页,faslse:typst生成的声明页，none:去除声明页
 
   // 若 abstract-content 为空，或参数缺省，则不显示中文摘要
   abstract-content: [

@@ -30,7 +30,7 @@
   student-id: "",
   guide-teacher: "",
   date: datetime.today(),
-  declare: false,
+  declare: true,
   abstract-content: [],
   abstract-en-content: [],
   keywords: (),
@@ -78,9 +78,10 @@
   )
 
   // 生成原创性声明
+  if declare != none {
   if declare { declaration(twoside: twoside, anonymous: anonymous) } 
   else {declaration_typst(twoside: twoside, anonymous: anonymous)}
-
+  }
   // 设置文档显示样式：
   // - show-paper-header: 显示论文页眉
   // - show-paper-footer: 显示论文页脚，使用"I"样式
