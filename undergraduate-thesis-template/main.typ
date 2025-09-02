@@ -1,6 +1,8 @@
 #import "template.typ": *
 
 #show: paper.with(
+  //anonymous: true, // 需要匿名盲审可以打开此选项(去除封面、原创性声明页)
+  //twoside: true, // 打印纸质版时可以打开此选项(在封面和声明页处加入空白页)
   subject: "本科生毕业设计(论文)",
   title: "北京理工大学本科生毕业设计（论文）题目",
   title-en: "The Subject of Undergraduate Graduation Project (Thesis) of Beijing Institute of Technology",
@@ -11,7 +13,8 @@
   student-id: "1120234514",
   guide-teacher: "暂无，求包养",
   date: datetime.today(),
-  // declare: false // 是否需要声明页
+  //date: datetime(year: 2025, month: 8, day: 31),
+  declare: true, // true:svg形式的声明页,false:typst生成的声明页，none:去除声明页
 
   // 若 abstract-content 为空，或参数缺省，则不显示中文摘要
   abstract-content: [
@@ -20,14 +23,16 @@
     摘要正文选用模板中的样式所定义的“正文”，每段落首行缩进2个字符；或者手动设置成每段落首行缩进2个汉字，字体：宋体，字号：小四，行距：固定值22磅，间距：段前、段后均为0行。【阅后删除此段】
 
     摘要是一篇具有独立性和完整性的短文，应概括而扼要地反映出本论文的主要内容。包括研究目的、研究方法、研究结果和结论等，特别要突出研究结果和结论。中文摘要力求语言精炼准确，本科生毕业设计（论文）摘要建议300-500字。摘要中不可出现参考文献、图、表、化学结构式、非公知公用的符号和术语。英文摘要与中文摘要的内容应一致。【阅后删除此段】
+
+    这是一个基于Typst的论文模板。
   ],
 
   // 若 abstract-en-content 为空，或参数缺省，则不显示英文摘要
   abstract-en-content: [
     #lorem(40)
   ],
-  keywords: ("北京理工大学", "本科生", "毕业设计（论文）"),
-  keywords-en: ("BIT", "Undergraduate", "Graduation Project(Thesis)"),
+  keywords: ("北京理工大学", "本科生", "毕业设计（论文）", "Typst"),
+  keywords-en: ("BIT", "Undergraduate", "Graduation Project(Thesis)", "Typst"),
 )
 
 = 一级题目
@@ -85,7 +90,7 @@ $ #[LRI] = 1 \/ sqrt(1 + (frac(mu_R, mu_s))^2 (sigma_R / sigma_S)^2) $<LRI>
 === 我是三级标题
 
 ==== 四级标题我没特意设置了
-===== 五级标题我也不知道到底长啥样了
+//===== 五级标题我也不知道到底长啥样了
 
 === 标题引用 <title-citation>
 
@@ -194,18 +199,52 @@ $
   caption: "BIT Logo",
 ) <bit-logo>
 
-=== 表格简单示例
-
 #figure(
-  table(
-    columns: 3,
-    [姓名], [年龄], [性别],
-    [张三], [18], [男],
-    [李四], [19], [女],
-    [王五], [20], [男],
+  [
+    #set text(font: songti, size: 10pt)
+    #set stack(dir: ttb, spacing: 0.5em)
+    #set image(height: 2cm)
+    #grid(
+      columns: 2,
+      gutter: 1em,
+      stack(image("assets/bit-logo.png"), [(a) 子图1]), stack(image("assets/bit-logo.png"), [(b) 子图2]),
+      stack(image("assets/bit-logo.png"), [(c) 子图3]), stack(image("assets/bit-logo.png"), [(d) 子图4]),
+    )],
+  caption: [多图示例],
+) <multiple-figures>
+
+=== 表格简单示例
+#align(
+  center,
+  (
+    stack(dir: ltr)[
+      #figure(
+        table(
+          align: center + horizon,
+          columns: 3,
+          [姓名], [年龄], [性别],
+          [张三], [18], [男],
+        ),
+        caption: [常规表],
+      ) <student-info>
+    ][
+      #h(50pt)
+    ][
+      #figure(
+        table(
+          columns: 4,
+          stroke: none,
+          table.hline(),
+          [$t$], [1], [2], [3],
+          table.hline(stroke: .5pt),
+          [$y$], [0.3s], [0.4s], [0.8s],
+          table.hline(),
+        ),
+        caption: [三线表],
+      ) <timing-tlt>
+    ]
   ),
-  caption: "学生信息表",
-) <student-info>
+)
 
 #figure(
   three-line-table(
@@ -217,6 +256,16 @@ $
   ),
   caption: "统计表",
 ) <stat-table>
+//在三线表里使用数学符号
+#figure(
+  three-line-table(
+    header: ("参数", "值", "参数", "值"),
+    ($rho$, $7.8 times 10^3 upright(k g \/ m^3)$, $nu$, 0.3),
+    ($L$, $6 upright(m m)$, $E$, $200 upright(G p a)$),
+  ),
+  caption: "参数表",
+) <table_math>
+
 
 === breakable 参数
 

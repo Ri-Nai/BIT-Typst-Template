@@ -3,13 +3,14 @@
 #import "styles/set-figure.typ": show-figure
 #import "styles/set-code.typ": show-code
 
-#import "utils/ziti.typ": zh, zihao
+#import "utils/ziti.typ": zh, zihao, songti, heiti
 #import "utils/indent-funs.typ": indent
 #import "utils/three-line-table.typ": three-line-table
 #import "utils/bib-citation.typ": bib-cite
 
 #import "pages/cover.typ": cover
 #import "pages/declaration.typ": declaration
+#import "pages/declaration-typst.typ": declaration_typst
 #import "pages/abstract.typ": abstract
 #import "pages/abstract-en.typ": abstract-en
 #import "pages/contents.typ": contents
@@ -36,6 +37,8 @@
   keywords-en: (),
   header: "北京理工大学本科生毕业设计（论文）",
   body,
+  twoside: false,
+  anonymous: false,
 ) = {
   // 应用模板样式和格式设置：
   // - show-cn-fakebold: 为中文字符应用伪粗体效果
@@ -70,11 +73,15 @@
     student-id: student-id,
     guide-teacher: guide-teacher,
     date: date,
+    twoside: twoside, 
+    anonymous: anonymous,
   )
 
   // 生成原创性声明
-  if declare { declaration() }
-
+  if declare != none {
+  if declare { declaration(twoside: twoside, anonymous: anonymous) } 
+  else {declaration_typst(twoside: twoside, anonymous: anonymous)}
+  }
   // 设置文档显示样式：
   // - show-paper-header: 显示论文页眉
   // - show-paper-footer: 显示论文页脚，使用"I"样式
@@ -94,6 +101,7 @@
     content: abstract-en-content,
     keywords: keywords-en,
   )
+  pagebreak(weak: true)
 
   // 生成目录
   contents()

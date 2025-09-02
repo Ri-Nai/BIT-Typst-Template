@@ -1,17 +1,17 @@
-#import "../utils/ziti.typ": zh, zihao
+#import "../utils/ziti.typ": zh, zihao, heiti
 
 #let abstract(
   title: "",
   content: [],
   keywords: (),
 ) = [
-  
+
   #v(-0.5em)
   #if content == [] {
     return
   }
   #let zh-title(it) = {
-    set text(font: "SimHei", weight: "bold", size: zh("小二"))
+    set text(font: heiti, weight: "bold", size: zh("小二"))
 
     set align(center)
     v(1em)
@@ -19,7 +19,7 @@
   }
 
   #show heading.where(level: 1): it => {
-    set text(font: "SimHei", size: zh("三号"))
+    set text(font: heiti, size: zh("三号"))
 
     set align(center)
     v(0.6em)
@@ -34,7 +34,7 @@
 
   #linebreak()
   #text(
-    font: "SimHei",
+    font: heiti, //中文摘要英文关键词字体设置
     weight: "bold",
   )[
     关键词：#keywords.join("；")
