@@ -4,17 +4,21 @@
 export LANG=en_US.UTF-8
 
 # 创建目标主目录
-typst_dir="$HOME/.local/share/typst/packages/local"
-
-# 定义需要安装的模板数组
-declare -A templates
-templates=(
-    ["undergraduate-thesis-template"]="bit-undergraduate-thesis-template"  # 可以从toml读取，这里为简化直接写死
-    ["slides-template"]=""  # 将从toml文件中读取
+typst_dir="$HOME/Library/Caches/typst/packages/local"
+# 定义需要安装的模板数组（macOS 默认 bash 为 3.x，不支持关联数组，改用二维数组模拟）
+templates_sources=(
+    "undergraduate-thesis-template"
+    "slides-template"
+)
+templates_names=(
+    "bit-undergraduate-thesis-template"
+    ""
 )
 
 # 循环处理每个模板
-for source in "${!templates[@]}"; do
+for idx in "${!templates_sources[@]}"; do
+    source="${templates_sources[$idx]}"
+    name_override="${templates_names[$idx]}"
     toml_file="$source/typst.toml"
     
     if [ -f "$toml_file" ]; then
@@ -22,7 +26,7 @@ for source in "${!templates[@]}"; do
         version=$(grep 'version = ' "$toml_file" | sed 's/version = "\(.*\)"/\1/')
         
         # 获取模板名称
-        name=${templates[$source]}
+        name="$name_override"
         if [ -z "$name" ]; then
             name=$(grep 'name = ' "$toml_file" | sed 's/name = "\(.*\)"/\1/')
         fi
